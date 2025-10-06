@@ -1,0 +1,610 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\romaq\\OneDrive\\Documentos\\Repositorios\\VenueService\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{9E763CDE-60A2-4228-AB60-79BF6418A056}|Infrastructure\\Infrastructure.csproj|c:\\users\\romaq\\onedrive\\documentos\\repositorios\\venueservice\\infrastructure\\filters\\customexceptionfilter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9E763CDE-60A2-4228-AB60-79BF6418A056}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\filters\\customexceptionfilter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9E763CDE-60A2-4228-AB60-79BF6418A056}|Infrastructure\\Infrastructure.csproj|c:\\users\\romaq\\onedrive\\documentos\\repositorios\\venueservice\\infrastructure\\queries\\seatquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9E763CDE-60A2-4228-AB60-79BF6418A056}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\queries\\seatquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9E763CDE-60A2-4228-AB60-79BF6418A056}|Infrastructure\\Infrastructure.csproj|c:\\users\\romaq\\onedrive\\documentos\\repositorios\\venueservice\\infrastructure\\queries\\sectorquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9E763CDE-60A2-4228-AB60-79BF6418A056}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\queries\\sectorquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9E763CDE-60A2-4228-AB60-79BF6418A056}|Infrastructure\\Infrastructure.csproj|c:\\users\\romaq\\onedrive\\documentos\\repositorios\\venueservice\\infrastructure\\queries\\venuequery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9E763CDE-60A2-4228-AB60-79BF6418A056}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\queries\\venuequery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9E763CDE-60A2-4228-AB60-79BF6418A056}|Infrastructure\\Infrastructure.csproj|c:\\users\\romaq\\onedrive\\documentos\\repositorios\\venueservice\\infrastructure\\commands\\seatcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9E763CDE-60A2-4228-AB60-79BF6418A056}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\commands\\seatcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9E763CDE-60A2-4228-AB60-79BF6418A056}|Infrastructure\\Infrastructure.csproj|c:\\users\\romaq\\onedrive\\documentos\\repositorios\\venueservice\\infrastructure\\commands\\venuecommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9E763CDE-60A2-4228-AB60-79BF6418A056}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\commands\\venuecommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9E763CDE-60A2-4228-AB60-79BF6418A056}|Infrastructure\\Infrastructure.csproj|c:\\users\\romaq\\onedrive\\documentos\\repositorios\\venueservice\\infrastructure\\commands\\sectorcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9E763CDE-60A2-4228-AB60-79BF6418A056}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\commands\\sectorcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EB460675-6F39-433E-A571-FDC65248702A}|Application\\Application.csproj|c:\\users\\romaq\\onedrive\\documentos\\repositorios\\venueservice\\application\\interfaces\\query\\ivenuequery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EB460675-6F39-433E-A571-FDC65248702A}|Application\\Application.csproj|solutionrelative:application\\interfaces\\query\\ivenuequery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EB460675-6F39-433E-A571-FDC65248702A}|Application\\Application.csproj|c:\\users\\romaq\\onedrive\\documentos\\repositorios\\venueservice\\application\\interfaces\\query\\isectorquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EB460675-6F39-433E-A571-FDC65248702A}|Application\\Application.csproj|solutionrelative:application\\interfaces\\query\\isectorquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EB460675-6F39-433E-A571-FDC65248702A}|Application\\Application.csproj|c:\\users\\romaq\\onedrive\\documentos\\repositorios\\venueservice\\application\\interfaces\\query\\iseatquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EB460675-6F39-433E-A571-FDC65248702A}|Application\\Application.csproj|solutionrelative:application\\interfaces\\query\\iseatquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EB460675-6F39-433E-A571-FDC65248702A}|Application\\Application.csproj|c:\\users\\romaq\\onedrive\\documentos\\repositorios\\venueservice\\application\\interfaces\\command\\iseatcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EB460675-6F39-433E-A571-FDC65248702A}|Application\\Application.csproj|solutionrelative:application\\interfaces\\command\\iseatcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EB460675-6F39-433E-A571-FDC65248702A}|Application\\Application.csproj|c:\\users\\romaq\\onedrive\\documentos\\repositorios\\venueservice\\application\\interfaces\\command\\isectorcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EB460675-6F39-433E-A571-FDC65248702A}|Application\\Application.csproj|solutionrelative:application\\interfaces\\command\\isectorcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EB460675-6F39-433E-A571-FDC65248702A}|Application\\Application.csproj|c:\\users\\romaq\\onedrive\\documentos\\repositorios\\venueservice\\application\\interfaces\\command\\ivenuecommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EB460675-6F39-433E-A571-FDC65248702A}|Application\\Application.csproj|solutionrelative:application\\interfaces\\command\\ivenuecommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EB460675-6F39-433E-A571-FDC65248702A}|Application\\Application.csproj|c:\\users\\romaq\\onedrive\\documentos\\repositorios\\venueservice\\application\\exceptions\\badrequestexception400.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EB460675-6F39-433E-A571-FDC65248702A}|Application\\Application.csproj|solutionrelative:application\\exceptions\\badrequestexception400.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EB460675-6F39-433E-A571-FDC65248702A}|Application\\Application.csproj|c:\\users\\romaq\\onedrive\\documentos\\repositorios\\venueservice\\application\\exceptions\\notfoundexception404.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EB460675-6F39-433E-A571-FDC65248702A}|Application\\Application.csproj|solutionrelative:application\\exceptions\\notfoundexception404.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EB460675-6F39-433E-A571-FDC65248702A}|Application\\Application.csproj|c:\\users\\romaq\\onedrive\\documentos\\repositorios\\venueservice\\application\\exceptions\\conflictexceptions409.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EB460675-6F39-433E-A571-FDC65248702A}|Application\\Application.csproj|solutionrelative:application\\exceptions\\conflictexceptions409.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EB460675-6F39-433E-A571-FDC65248702A}|Application\\Application.csproj|c:\\users\\romaq\\onedrive\\documentos\\repositorios\\venueservice\\application\\exceptions\\httpexceptions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EB460675-6F39-433E-A571-FDC65248702A}|Application\\Application.csproj|solutionrelative:application\\exceptions\\httpexceptions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EDBBF8D3-F286-4BE0-BB57-B40180F26D12}|Domain\\Domain.csproj|c:\\users\\romaq\\onedrive\\documentos\\repositorios\\venueservice\\domain\\entities\\seat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EDBBF8D3-F286-4BE0-BB57-B40180F26D12}|Domain\\Domain.csproj|solutionrelative:domain\\entities\\seat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EDBBF8D3-F286-4BE0-BB57-B40180F26D12}|Domain\\Domain.csproj|c:\\users\\romaq\\onedrive\\documentos\\repositorios\\venueservice\\domain\\entities\\controlledsector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EDBBF8D3-F286-4BE0-BB57-B40180F26D12}|Domain\\Domain.csproj|solutionrelative:domain\\entities\\controlledsector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EDBBF8D3-F286-4BE0-BB57-B40180F26D12}|Domain\\Domain.csproj|c:\\users\\romaq\\onedrive\\documentos\\repositorios\\venueservice\\domain\\entities\\venue.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EDBBF8D3-F286-4BE0-BB57-B40180F26D12}|Domain\\Domain.csproj|solutionrelative:domain\\entities\\venue.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EDBBF8D3-F286-4BE0-BB57-B40180F26D12}|Domain\\Domain.csproj|c:\\users\\romaq\\onedrive\\documentos\\repositorios\\venueservice\\domain\\entities\\uncontrolledsector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EDBBF8D3-F286-4BE0-BB57-B40180F26D12}|Domain\\Domain.csproj|solutionrelative:domain\\entities\\uncontrolledsector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EDBBF8D3-F286-4BE0-BB57-B40180F26D12}|Domain\\Domain.csproj|c:\\users\\romaq\\onedrive\\documentos\\repositorios\\venueservice\\domain\\entities\\sector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EDBBF8D3-F286-4BE0-BB57-B40180F26D12}|Domain\\Domain.csproj|solutionrelative:domain\\entities\\sector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EDBBF8D3-F286-4BE0-BB57-B40180F26D12}|Domain\\Domain.csproj|c:\\users\\romaq\\onedrive\\documentos\\repositorios\\venueservice\\domain\\entities\\venuetype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EDBBF8D3-F286-4BE0-BB57-B40180F26D12}|Domain\\Domain.csproj|solutionrelative:domain\\entities\\venuetype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9E763CDE-60A2-4228-AB60-79BF6418A056}|Infrastructure\\Infrastructure.csproj|c:\\users\\romaq\\onedrive\\documentos\\repositorios\\venueservice\\infrastructure\\persistence\\configurations\\venuetypeconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9E763CDE-60A2-4228-AB60-79BF6418A056}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\persistence\\configurations\\venuetypeconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9E763CDE-60A2-4228-AB60-79BF6418A056}|Infrastructure\\Infrastructure.csproj|c:\\users\\romaq\\onedrive\\documentos\\repositorios\\venueservice\\infrastructure\\persistence\\configurations\\venueconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9E763CDE-60A2-4228-AB60-79BF6418A056}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\persistence\\configurations\\venueconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9E763CDE-60A2-4228-AB60-79BF6418A056}|Infrastructure\\Infrastructure.csproj|c:\\users\\romaq\\onedrive\\documentos\\repositorios\\venueservice\\infrastructure\\persistence\\configurations\\sectorconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9E763CDE-60A2-4228-AB60-79BF6418A056}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\persistence\\configurations\\sectorconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9E763CDE-60A2-4228-AB60-79BF6418A056}|Infrastructure\\Infrastructure.csproj|c:\\users\\romaq\\onedrive\\documentos\\repositorios\\venueservice\\infrastructure\\persistence\\configurations\\uncontrolledsectorconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9E763CDE-60A2-4228-AB60-79BF6418A056}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\persistence\\configurations\\uncontrolledsectorconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9E763CDE-60A2-4228-AB60-79BF6418A056}|Infrastructure\\Infrastructure.csproj|c:\\users\\romaq\\onedrive\\documentos\\repositorios\\venueservice\\infrastructure\\persistence\\configurations\\controlledsectorconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9E763CDE-60A2-4228-AB60-79BF6418A056}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\persistence\\configurations\\controlledsectorconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9E763CDE-60A2-4228-AB60-79BF6418A056}|Infrastructure\\Infrastructure.csproj|c:\\users\\romaq\\onedrive\\documentos\\repositorios\\venueservice\\infrastructure\\persistence\\configurations\\seatconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9E763CDE-60A2-4228-AB60-79BF6418A056}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\persistence\\configurations\\seatconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9E763CDE-60A2-4228-AB60-79BF6418A056}|Infrastructure\\Infrastructure.csproj|c:\\users\\romaq\\onedrive\\documentos\\repositorios\\venueservice\\infrastructure\\persistence\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9E763CDE-60A2-4228-AB60-79BF6418A056}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\persistence\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{79D3C395-1401-42A2-BF49-E1CDD10F3B5C}|VenueService\\VenueService.csproj|c:\\users\\romaq\\onedrive\\documentos\\repositorios\\venueservice\\venueservice\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{79D3C395-1401-42A2-BF49-E1CDD10F3B5C}|VenueService\\VenueService.csproj|solutionrelative:venueservice\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{79D3C395-1401-42A2-BF49-E1CDD10F3B5C}|VenueService\\VenueService.csproj|c:\\users\\romaq\\onedrive\\documentos\\repositorios\\venueservice\\venueservice\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{79D3C395-1401-42A2-BF49-E1CDD10F3B5C}|VenueService\\VenueService.csproj|solutionrelative:venueservice\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{79D3C395-1401-42A2-BF49-E1CDD10F3B5C}|VenueService\\VenueService.csproj|c:\\users\\romaq\\onedrive\\documentos\\repositorios\\venueservice\\venueservice\\controllers\\venuecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{79D3C395-1401-42A2-BF49-E1CDD10F3B5C}|VenueService\\VenueService.csproj|solutionrelative:venueservice\\controllers\\venuecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9E763CDE-60A2-4228-AB60-79BF6418A056}|Infrastructure\\Infrastructure.csproj|c:\\users\\romaq\\onedrive\\documentos\\repositorios\\venueservice\\infrastructure\\infrastructure.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{9E763CDE-60A2-4228-AB60-79BF6418A056}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\infrastructure.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{79D3C395-1401-42A2-BF49-E1CDD10F3B5C}|VenueService\\VenueService.csproj|c:\\users\\romaq\\onedrive\\documentos\\repositorios\\venueservice\\venueservice\\controllers\\weatherforecastcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{79D3C395-1401-42A2-BF49-E1CDD10F3B5C}|VenueService\\VenueService.csproj|solutionrelative:venueservice\\controllers\\weatherforecastcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{79D3C395-1401-42A2-BF49-E1CDD10F3B5C}|VenueService\\VenueService.csproj|c:\\users\\romaq\\onedrive\\documentos\\repositorios\\venueservice\\venueservice\\weatherforecast.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{79D3C395-1401-42A2-BF49-E1CDD10F3B5C}|VenueService\\VenueService.csproj|solutionrelative:venueservice\\weatherforecast.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 100,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 230,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CustomExceptionFilter.cs",
+              "DocumentMoniker": "C:\\Users\\romaq\\OneDrive\\Documentos\\Repositorios\\VenueService\\Infrastructure\\Filters\\CustomExceptionFilter.cs",
+              "RelativeDocumentMoniker": "Infrastructure\\Filters\\CustomExceptionFilter.cs",
+              "ToolTip": "C:\\Users\\romaq\\OneDrive\\Documentos\\Repositorios\\VenueService\\Infrastructure\\Filters\\CustomExceptionFilter.cs",
+              "RelativeToolTip": "Infrastructure\\Filters\\CustomExceptionFilter.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-06T19:51:27.915Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "SeatQuery.cs",
+              "DocumentMoniker": "C:\\Users\\romaq\\OneDrive\\Documentos\\Repositorios\\VenueService\\Infrastructure\\Queries\\SeatQuery.cs",
+              "RelativeDocumentMoniker": "Infrastructure\\Queries\\SeatQuery.cs",
+              "ToolTip": "C:\\Users\\romaq\\OneDrive\\Documentos\\Repositorios\\VenueService\\Infrastructure\\Queries\\SeatQuery.cs",
+              "RelativeToolTip": "Infrastructure\\Queries\\SeatQuery.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-06T19:50:26.192Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "SectorQuery.cs",
+              "DocumentMoniker": "C:\\Users\\romaq\\OneDrive\\Documentos\\Repositorios\\VenueService\\Infrastructure\\Queries\\SectorQuery.cs",
+              "RelativeDocumentMoniker": "Infrastructure\\Queries\\SectorQuery.cs",
+              "ToolTip": "C:\\Users\\romaq\\OneDrive\\Documentos\\Repositorios\\VenueService\\Infrastructure\\Queries\\SectorQuery.cs",
+              "RelativeToolTip": "Infrastructure\\Queries\\SectorQuery.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-06T19:49:14.73Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "VenueQuery.cs",
+              "DocumentMoniker": "C:\\Users\\romaq\\OneDrive\\Documentos\\Repositorios\\VenueService\\Infrastructure\\Queries\\VenueQuery.cs",
+              "RelativeDocumentMoniker": "Infrastructure\\Queries\\VenueQuery.cs",
+              "ToolTip": "C:\\Users\\romaq\\OneDrive\\Documentos\\Repositorios\\VenueService\\Infrastructure\\Queries\\VenueQuery.cs",
+              "RelativeToolTip": "Infrastructure\\Queries\\VenueQuery.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-06T19:48:22.962Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "SeatCommand.cs",
+              "DocumentMoniker": "C:\\Users\\romaq\\OneDrive\\Documentos\\Repositorios\\VenueService\\Infrastructure\\Commands\\SeatCommand.cs",
+              "RelativeDocumentMoniker": "Infrastructure\\Commands\\SeatCommand.cs",
+              "ToolTip": "C:\\Users\\romaq\\OneDrive\\Documentos\\Repositorios\\VenueService\\Infrastructure\\Commands\\SeatCommand.cs",
+              "RelativeToolTip": "Infrastructure\\Commands\\SeatCommand.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-06T19:47:32.418Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "VenueCommand.cs",
+              "DocumentMoniker": "C:\\Users\\romaq\\OneDrive\\Documentos\\Repositorios\\VenueService\\Infrastructure\\Commands\\VenueCommand.cs",
+              "RelativeDocumentMoniker": "Infrastructure\\Commands\\VenueCommand.cs",
+              "ToolTip": "C:\\Users\\romaq\\OneDrive\\Documentos\\Repositorios\\VenueService\\Infrastructure\\Commands\\VenueCommand.cs",
+              "RelativeToolTip": "Infrastructure\\Commands\\VenueCommand.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-06T19:46:47.676Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "SectorCommand.cs",
+              "DocumentMoniker": "C:\\Users\\romaq\\OneDrive\\Documentos\\Repositorios\\VenueService\\Infrastructure\\Commands\\SectorCommand.cs",
+              "RelativeDocumentMoniker": "Infrastructure\\Commands\\SectorCommand.cs",
+              "ToolTip": "C:\\Users\\romaq\\OneDrive\\Documentos\\Repositorios\\VenueService\\Infrastructure\\Commands\\SectorCommand.cs",
+              "RelativeToolTip": "Infrastructure\\Commands\\SectorCommand.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-06T19:45:57.995Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "ISeatQuery.cs",
+              "DocumentMoniker": "C:\\Users\\romaq\\OneDrive\\Documentos\\Repositorios\\VenueService\\Application\\Interfaces\\Query\\ISeatQuery.cs",
+              "RelativeDocumentMoniker": "Application\\Interfaces\\Query\\ISeatQuery.cs",
+              "ToolTip": "C:\\Users\\romaq\\OneDrive\\Documentos\\Repositorios\\VenueService\\Application\\Interfaces\\Query\\ISeatQuery.cs",
+              "RelativeToolTip": "Application\\Interfaces\\Query\\ISeatQuery.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-06T19:44:05.935Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ISectorQuery.cs",
+              "DocumentMoniker": "C:\\Users\\romaq\\OneDrive\\Documentos\\Repositorios\\VenueService\\Application\\Interfaces\\Query\\ISectorQuery.cs",
+              "RelativeDocumentMoniker": "Application\\Interfaces\\Query\\ISectorQuery.cs",
+              "ToolTip": "C:\\Users\\romaq\\OneDrive\\Documentos\\Repositorios\\VenueService\\Application\\Interfaces\\Query\\ISectorQuery.cs",
+              "RelativeToolTip": "Application\\Interfaces\\Query\\ISectorQuery.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-06T19:43:53.066Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "IVenueQuery.cs",
+              "DocumentMoniker": "C:\\Users\\romaq\\OneDrive\\Documentos\\Repositorios\\VenueService\\Application\\Interfaces\\Query\\IVenueQuery.cs",
+              "RelativeDocumentMoniker": "Application\\Interfaces\\Query\\IVenueQuery.cs",
+              "ToolTip": "C:\\Users\\romaq\\OneDrive\\Documentos\\Repositorios\\VenueService\\Application\\Interfaces\\Query\\IVenueQuery.cs",
+              "RelativeToolTip": "Application\\Interfaces\\Query\\IVenueQuery.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-06T19:43:41.938Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "ISeatCommand.cs",
+              "DocumentMoniker": "C:\\Users\\romaq\\OneDrive\\Documentos\\Repositorios\\VenueService\\Application\\Interfaces\\Command\\ISeatCommand.cs",
+              "RelativeDocumentMoniker": "Application\\Interfaces\\Command\\ISeatCommand.cs",
+              "ToolTip": "C:\\Users\\romaq\\OneDrive\\Documentos\\Repositorios\\VenueService\\Application\\Interfaces\\Command\\ISeatCommand.cs",
+              "RelativeToolTip": "Application\\Interfaces\\Command\\ISeatCommand.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-06T19:43:00.085Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "ISectorCommand.cs",
+              "DocumentMoniker": "C:\\Users\\romaq\\OneDrive\\Documentos\\Repositorios\\VenueService\\Application\\Interfaces\\Command\\ISectorCommand.cs",
+              "RelativeDocumentMoniker": "Application\\Interfaces\\Command\\ISectorCommand.cs",
+              "ToolTip": "C:\\Users\\romaq\\OneDrive\\Documentos\\Repositorios\\VenueService\\Application\\Interfaces\\Command\\ISectorCommand.cs",
+              "RelativeToolTip": "Application\\Interfaces\\Command\\ISectorCommand.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-06T19:41:46.024Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "IVenueCommand.cs",
+              "DocumentMoniker": "C:\\Users\\romaq\\OneDrive\\Documentos\\Repositorios\\VenueService\\Application\\Interfaces\\Command\\IVenueCommand.cs",
+              "RelativeDocumentMoniker": "Application\\Interfaces\\Command\\IVenueCommand.cs",
+              "ToolTip": "C:\\Users\\romaq\\OneDrive\\Documentos\\Repositorios\\VenueService\\Application\\Interfaces\\Command\\IVenueCommand.cs",
+              "RelativeToolTip": "Application\\Interfaces\\Command\\IVenueCommand.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-06T19:39:06.675Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "NotFoundException404.cs",
+              "DocumentMoniker": "C:\\Users\\romaq\\OneDrive\\Documentos\\Repositorios\\VenueService\\Application\\Exceptions\\NotFoundException404.cs",
+              "RelativeDocumentMoniker": "Application\\Exceptions\\NotFoundException404.cs",
+              "ToolTip": "C:\\Users\\romaq\\OneDrive\\Documentos\\Repositorios\\VenueService\\Application\\Exceptions\\NotFoundException404.cs",
+              "RelativeToolTip": "Application\\Exceptions\\NotFoundException404.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-06T02:48:41.252Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "ConflictExceptions409.cs",
+              "DocumentMoniker": "C:\\Users\\romaq\\OneDrive\\Documentos\\Repositorios\\VenueService\\Application\\Exceptions\\ConflictExceptions409.cs",
+              "RelativeDocumentMoniker": "Application\\Exceptions\\ConflictExceptions409.cs",
+              "ToolTip": "C:\\Users\\romaq\\OneDrive\\Documentos\\Repositorios\\VenueService\\Application\\Exceptions\\ConflictExceptions409.cs",
+              "RelativeToolTip": "Application\\Exceptions\\ConflictExceptions409.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-06T02:48:13.01Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "HttpExceptions.cs",
+              "DocumentMoniker": "C:\\Users\\romaq\\OneDrive\\Documentos\\Repositorios\\VenueService\\Application\\Exceptions\\HttpExceptions.cs",
+              "RelativeDocumentMoniker": "Application\\Exceptions\\HttpExceptions.cs",
+              "ToolTip": "C:\\Users\\romaq\\OneDrive\\Documentos\\Repositorios\\VenueService\\Application\\Exceptions\\HttpExceptions.cs",
+              "RelativeToolTip": "Application\\Exceptions\\HttpExceptions.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-06T02:47:34.747Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "BadRequestException400.cs",
+              "DocumentMoniker": "C:\\Users\\romaq\\OneDrive\\Documentos\\Repositorios\\VenueService\\Application\\Exceptions\\BadRequestException400.cs",
+              "RelativeDocumentMoniker": "Application\\Exceptions\\BadRequestException400.cs",
+              "ToolTip": "C:\\Users\\romaq\\OneDrive\\Documentos\\Repositorios\\VenueService\\Application\\Exceptions\\BadRequestException400.cs",
+              "RelativeToolTip": "Application\\Exceptions\\BadRequestException400.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-06T02:46:41.212Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "VenueType.cs",
+              "DocumentMoniker": "C:\\Users\\romaq\\OneDrive\\Documentos\\Repositorios\\VenueService\\Domain\\Entities\\VenueType.cs",
+              "RelativeDocumentMoniker": "Domain\\Entities\\VenueType.cs",
+              "ToolTip": "C:\\Users\\romaq\\OneDrive\\Documentos\\Repositorios\\VenueService\\Domain\\Entities\\VenueType.cs",
+              "RelativeToolTip": "Domain\\Entities\\VenueType.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-02T19:49:13.12Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Venue.cs",
+              "DocumentMoniker": "C:\\Users\\romaq\\OneDrive\\Documentos\\Repositorios\\VenueService\\Domain\\Entities\\Venue.cs",
+              "RelativeDocumentMoniker": "Domain\\Entities\\Venue.cs",
+              "ToolTip": "C:\\Users\\romaq\\OneDrive\\Documentos\\Repositorios\\VenueService\\Domain\\Entities\\Venue.cs",
+              "RelativeToolTip": "Domain\\Entities\\Venue.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-02T19:49:03.277Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "UncontrolledSector.cs",
+              "DocumentMoniker": "C:\\Users\\romaq\\OneDrive\\Documentos\\Repositorios\\VenueService\\Domain\\Entities\\UncontrolledSector.cs",
+              "RelativeDocumentMoniker": "Domain\\Entities\\UncontrolledSector.cs",
+              "ToolTip": "C:\\Users\\romaq\\OneDrive\\Documentos\\Repositorios\\VenueService\\Domain\\Entities\\UncontrolledSector.cs",
+              "RelativeToolTip": "Domain\\Entities\\UncontrolledSector.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-02T19:48:46.766Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "ControlledSector.cs",
+              "DocumentMoniker": "C:\\Users\\romaq\\OneDrive\\Documentos\\Repositorios\\VenueService\\Domain\\Entities\\ControlledSector.cs",
+              "RelativeDocumentMoniker": "Domain\\Entities\\ControlledSector.cs",
+              "ToolTip": "C:\\Users\\romaq\\OneDrive\\Documentos\\Repositorios\\VenueService\\Domain\\Entities\\ControlledSector.cs",
+              "RelativeToolTip": "Domain\\Entities\\ControlledSector.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-02T19:48:33.927Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "Seat.cs",
+              "DocumentMoniker": "C:\\Users\\romaq\\OneDrive\\Documentos\\Repositorios\\VenueService\\Domain\\Entities\\Seat.cs",
+              "RelativeDocumentMoniker": "Domain\\Entities\\Seat.cs",
+              "ToolTip": "C:\\Users\\romaq\\OneDrive\\Documentos\\Repositorios\\VenueService\\Domain\\Entities\\Seat.cs",
+              "RelativeToolTip": "Domain\\Entities\\Seat.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-02T19:48:24.103Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "Sector.cs",
+              "DocumentMoniker": "C:\\Users\\romaq\\OneDrive\\Documentos\\Repositorios\\VenueService\\Domain\\Entities\\Sector.cs",
+              "RelativeDocumentMoniker": "Domain\\Entities\\Sector.cs",
+              "ToolTip": "C:\\Users\\romaq\\OneDrive\\Documentos\\Repositorios\\VenueService\\Domain\\Entities\\Sector.cs",
+              "RelativeToolTip": "Domain\\Entities\\Sector.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-02T19:48:14.958Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "VenueTypeConfiguration.cs",
+              "DocumentMoniker": "C:\\Users\\romaq\\OneDrive\\Documentos\\Repositorios\\VenueService\\Infrastructure\\Persistence\\Configurations\\VenueTypeConfiguration.cs",
+              "RelativeDocumentMoniker": "Infrastructure\\Persistence\\Configurations\\VenueTypeConfiguration.cs",
+              "ToolTip": "C:\\Users\\romaq\\OneDrive\\Documentos\\Repositorios\\VenueService\\Infrastructure\\Persistence\\Configurations\\VenueTypeConfiguration.cs",
+              "RelativeToolTip": "Infrastructure\\Persistence\\Configurations\\VenueTypeConfiguration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-02T19:43:15.608Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "VenueConfiguration.cs",
+              "DocumentMoniker": "C:\\Users\\romaq\\OneDrive\\Documentos\\Repositorios\\VenueService\\Infrastructure\\Persistence\\Configurations\\VenueConfiguration.cs",
+              "RelativeDocumentMoniker": "Infrastructure\\Persistence\\Configurations\\VenueConfiguration.cs",
+              "ToolTip": "C:\\Users\\romaq\\OneDrive\\Documentos\\Repositorios\\VenueService\\Infrastructure\\Persistence\\Configurations\\VenueConfiguration.cs",
+              "RelativeToolTip": "Infrastructure\\Persistence\\Configurations\\VenueConfiguration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-02T19:42:57.065Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "ControlledSectorConfiguration.cs",
+              "DocumentMoniker": "C:\\Users\\romaq\\OneDrive\\Documentos\\Repositorios\\VenueService\\Infrastructure\\Persistence\\Configurations\\ControlledSectorConfiguration.cs",
+              "RelativeDocumentMoniker": "Infrastructure\\Persistence\\Configurations\\ControlledSectorConfiguration.cs",
+              "ToolTip": "C:\\Users\\romaq\\OneDrive\\Documentos\\Repositorios\\VenueService\\Infrastructure\\Persistence\\Configurations\\ControlledSectorConfiguration.cs",
+              "RelativeToolTip": "Infrastructure\\Persistence\\Configurations\\ControlledSectorConfiguration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-02T19:42:42.655Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "UncontrolledSectorConfiguration.cs",
+              "DocumentMoniker": "C:\\Users\\romaq\\OneDrive\\Documentos\\Repositorios\\VenueService\\Infrastructure\\Persistence\\Configurations\\UncontrolledSectorConfiguration.cs",
+              "RelativeDocumentMoniker": "Infrastructure\\Persistence\\Configurations\\UncontrolledSectorConfiguration.cs",
+              "ToolTip": "C:\\Users\\romaq\\OneDrive\\Documentos\\Repositorios\\VenueService\\Infrastructure\\Persistence\\Configurations\\UncontrolledSectorConfiguration.cs",
+              "RelativeToolTip": "Infrastructure\\Persistence\\Configurations\\UncontrolledSectorConfiguration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAABFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-02T19:42:24.851Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "SeatConfiguration.cs",
+              "DocumentMoniker": "C:\\Users\\romaq\\OneDrive\\Documentos\\Repositorios\\VenueService\\Infrastructure\\Persistence\\Configurations\\SeatConfiguration.cs",
+              "RelativeDocumentMoniker": "Infrastructure\\Persistence\\Configurations\\SeatConfiguration.cs",
+              "ToolTip": "C:\\Users\\romaq\\OneDrive\\Documentos\\Repositorios\\VenueService\\Infrastructure\\Persistence\\Configurations\\SeatConfiguration.cs",
+              "RelativeToolTip": "Infrastructure\\Persistence\\Configurations\\SeatConfiguration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-02T19:42:03.04Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "SectorConfiguration.cs",
+              "DocumentMoniker": "C:\\Users\\romaq\\OneDrive\\Documentos\\Repositorios\\VenueService\\Infrastructure\\Persistence\\Configurations\\SectorConfiguration.cs",
+              "RelativeDocumentMoniker": "Infrastructure\\Persistence\\Configurations\\SectorConfiguration.cs",
+              "ToolTip": "C:\\Users\\romaq\\OneDrive\\Documentos\\Repositorios\\VenueService\\Infrastructure\\Persistence\\Configurations\\SectorConfiguration.cs",
+              "RelativeToolTip": "Infrastructure\\Persistence\\Configurations\\SectorConfiguration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-02T19:41:51.833Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "appsettings.Development.json",
+              "DocumentMoniker": "C:\\Users\\romaq\\OneDrive\\Documentos\\Repositorios\\VenueService\\VenueService\\appsettings.Development.json",
+              "RelativeDocumentMoniker": "VenueService\\appsettings.Development.json",
+              "ToolTip": "C:\\Users\\romaq\\OneDrive\\Documentos\\Repositorios\\VenueService\\VenueService\\appsettings.Development.json",
+              "RelativeToolTip": "VenueService\\appsettings.Development.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-10-02T19:37:15.469Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\romaq\\OneDrive\\Documentos\\Repositorios\\VenueService\\Infrastructure\\Persistence\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "Infrastructure\\Persistence\\AppDbContext.cs",
+              "ToolTip": "C:\\Users\\romaq\\OneDrive\\Documentos\\Repositorios\\VenueService\\Infrastructure\\Persistence\\AppDbContext.cs",
+              "RelativeToolTip": "Infrastructure\\Persistence\\AppDbContext.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAA5wB0AAAA+AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-02T19:16:23.804Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "Infrastructure.csproj",
+              "DocumentMoniker": "C:\\Users\\romaq\\OneDrive\\Documentos\\Repositorios\\VenueService\\Infrastructure\\Infrastructure.csproj",
+              "RelativeDocumentMoniker": "Infrastructure\\Infrastructure.csproj",
+              "ToolTip": "C:\\Users\\romaq\\OneDrive\\Documentos\\Repositorios\\VenueService\\Infrastructure\\Infrastructure.csproj",
+              "RelativeToolTip": "Infrastructure\\Infrastructure.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-10-02T19:00:04.814Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "VenueController.cs",
+              "DocumentMoniker": "C:\\Users\\romaq\\OneDrive\\Documentos\\Repositorios\\VenueService\\VenueService\\Controllers\\VenueController.cs",
+              "RelativeDocumentMoniker": "VenueService\\Controllers\\VenueController.cs",
+              "ToolTip": "C:\\Users\\romaq\\OneDrive\\Documentos\\Repositorios\\VenueService\\VenueService\\Controllers\\VenueController.cs",
+              "RelativeToolTip": "VenueService\\Controllers\\VenueController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-02T16:51:04.679Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "WeatherForecastController.cs",
+              "DocumentMoniker": "C:\\Users\\romaq\\OneDrive\\Documentos\\Repositorios\\VenueService\\VenueService\\Controllers\\WeatherForecastController.cs",
+              "RelativeDocumentMoniker": "VenueService\\Controllers\\WeatherForecastController.cs",
+              "ToolTip": "C:\\Users\\romaq\\OneDrive\\Documentos\\Repositorios\\VenueService\\VenueService\\Controllers\\WeatherForecastController.cs",
+              "RelativeToolTip": "VenueService\\Controllers\\WeatherForecastController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-02T16:45:59.661Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "WeatherForecast.cs",
+              "DocumentMoniker": "C:\\Users\\romaq\\OneDrive\\Documentos\\Repositorios\\VenueService\\VenueService\\WeatherForecast.cs",
+              "RelativeDocumentMoniker": "VenueService\\WeatherForecast.cs",
+              "ToolTip": "C:\\Users\\romaq\\OneDrive\\Documentos\\Repositorios\\VenueService\\VenueService\\WeatherForecast.cs",
+              "RelativeToolTip": "VenueService\\WeatherForecast.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-02T16:45:52.444Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\romaq\\OneDrive\\Documentos\\Repositorios\\VenueService\\VenueService\\Program.cs",
+              "RelativeDocumentMoniker": "VenueService\\Program.cs",
+              "ToolTip": "C:\\Users\\romaq\\OneDrive\\Documentos\\Repositorios\\VenueService\\VenueService\\Program.cs",
+              "RelativeToolTip": "VenueService\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-02T16:30:17.69Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
