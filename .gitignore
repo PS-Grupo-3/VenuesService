@@ -1,0 +1,63 @@
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.vscode/
+
+# Build directories
+bin/
+obj/
+**/bin/
+**/obj/
+
+# Rider IDE
+.idea/
+
+# NuGet
+*.nupkg
+packages/
+*.snupkg
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# EF Core Migrations (opcional: versionar si querés)
+# Infrastructure/Migrations/
+
+# Logs
+*.log
+
+# Database
+*.mdf
+*.ldf
+*.db
+
+# OS generated
+.DS_Store
+Thumbs.db
+
+# .NET Core
+*.dll
+*.exe
+*.pdb
+*.cache
+*.up2date
+*.runtimeconfig.json
+*.runtimeconfig.dev.json
+*.deps.json
+*.nuget.props
+*.nuget.targets
+*.msbuild.log
+
+# User-specific files
+*.DotSettings.user
+
+# JetBrains Rider
+.idea/
+
+# Temporary files
+*.tmp
+*.bak
+*.swp

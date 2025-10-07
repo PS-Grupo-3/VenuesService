@@ -1,5 +1,15 @@
 [
   {
+    "ContainingType": "VenueService.Controllers.VenueController",
+    "Method": "Index",
+    "RelativePath": "api/Venue",
+    "HttpMethod": "",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "VenueService.Controllers.WeatherForecastController",
     "Method": "Get",
     "RelativePath": "WeatherForecast",
