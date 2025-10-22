@@ -25,6 +25,12 @@ namespace Infrastructure.Persistence.Configurations
             builder.Property(venue => venue.TotalCapacity)
                 .IsRequired();
 
+            builder.Property(venue => venue.Adress)
+                .IsRequired();
+
+            builder.Property(venue => venue.MapUrl)
+                .IsRequired();
+
             builder.HasOne(venue => venue.VenueTypeNavigation)
                 .WithMany(venuetype => venuetype.Venues)
                 .HasForeignKey(venue => venue.VenueType)

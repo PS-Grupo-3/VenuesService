@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Entities
+namespace Application.Features.Seat.Commands
 {
-    public class UncontrolledSector : Sector
+    internal class DeleteSeatHandler
     {
-        public long Capacity { get; set; }
     }
 }

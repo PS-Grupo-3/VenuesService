@@ -19,8 +19,14 @@ namespace Domain.Entities
         public string Location { get; set; }
         public long TotalCapacity { get; set; }
 
+        public string Adress { get; set; }
+
+        public string MapUrl { get; set; }
+
         // FK a VenueType
         public int VenueType { get; set; }
+
+        
         public VenueType VenueTypeNavigation { get; set; }
 
         // Navegación a Sector

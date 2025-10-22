@@ -16,10 +16,6 @@ namespace Infrastructure.Persistence.Configurations
                 .HasMaxLength(50);
 
 
-            builder.HasDiscriminator<string>("SectorType")
-               .HasValue<ControlledSector>("Controlled")
-               .HasValue<UncontrolledSector>("Uncontrolled");
-
             builder.HasOne(sector => sector.VenueNavigation)
                 .WithMany(venue => venue.Sectors)
                 .HasForeignKey(sector => sector.Venue)

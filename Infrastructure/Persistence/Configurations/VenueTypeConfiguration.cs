@@ -21,6 +21,11 @@ namespace Infrastructure.Persistence.Configurations
                 .IsRequired()
                 .HasMaxLength(50);
 
+            builder.HasData(
+                new VenueType { VenueTypeId = 1, Name = "Stadium" },
+                new VenueType { VenueTypeId = 2, Name = "Theater" },
+                new VenueType { VenueTypeId = 3, Name = "Field" }
+                );
         }
     }
 }

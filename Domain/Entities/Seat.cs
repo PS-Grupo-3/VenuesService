@@ -16,7 +16,7 @@ namespace Domain.Entities
         public int ColumnNumber { get; set; }
 
         // FK a Sector
-        public Guid ControlledSector { get; set; }
-        public ControlledSector ControlledSectorNavigation { get; set; }
+        public Guid SectorId { get; set; }
+        public Sector SectorNavigation { get; set; }
     }
 }

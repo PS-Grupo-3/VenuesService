@@ -18,9 +18,9 @@ namespace Infrastructure.Persistence.Configurations
             builder.Property(seat => seat.ColumnNumber)
                 .IsRequired();
 
-            builder.HasOne(seat => seat.ControlledSectorNavigation)
-                .WithMany(controlledsectors => controlledsectors.Seats)
-                .HasForeignKey(seat => seat.ControlledSector)
+            builder.HasOne(seat => seat.SectorNavigation)
+                .WithMany(sectors => sectors.Seats)
+                .HasForeignKey(seat => seat.SectorId)
                 .OnDelete(DeleteBehavior.Restrict);
         }
     }

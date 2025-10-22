@@ -10,9 +10,7 @@ namespace Infrastructure.Persistence
         {
         }
 
-        public DbSet<UncontrolledSector> UncontrolledSectors { get; set; }
         public DbSet<Seat> Seats { get; set; }
-        public DbSet<ControlledSector> ControlledSectors { get; set; }
         public DbSet<Venue> Venues { get; set; }
         public DbSet<Sector> Sectors { get; set; }
         public DbSet<VenueType> VenueTypes { get; set; }
