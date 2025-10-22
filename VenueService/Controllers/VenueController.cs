@@ -2,42 +2,63 @@
 using Infrastructure.Persistence; 
 using Domain.Entities;          
 using Microsoft.EntityFrameworkCore; 
+using MediatR;
+using Application.Features.Venue.Queries;
+using Application.Models.Requests;
+using Application.Features.Venue.Commands;
 
 namespace VenueService.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/v1//[controller]")]
     [ApiController]
     public class VenueController : ControllerBase
     {
-        private readonly AppDbContext _context;
+        private readonly IMediator _mediator;
 
        
-        public VenueController(AppDbContext context)
+        public VenueController(IMediator mediator)
         {
-            _context = context;
+            _mediator = mediator;
         }
 
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Venue>>> GetVenues()
+        public async Task<IActionResult> GetAll()
         {
-       
-            var venues = await _context.Venues.ToListAsync();
 
-            return Ok(venues);
+            var result = await _mediator.Send(new GetAllVenuesQuery());
+            return Ok(result);
         }
 
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Venue>> GetVenueById(Guid id)
+        [HttpGet("{id:guid}")]
+        public async Task<IActionResult> GetById(Guid id)
         {
-            var venue = await _context.Venues.FindAsync(id);
+            var result = await _mediator.Send(new GetVenueByIdQuery(id));
+            return Ok(result);
+           
+        }
 
-            if (venue == null)
-            {
-                return NotFound(); 
-            }
+        [HttpPost]
+        public async Task<IActionResult> Create([FromBody] CreateVenueRequest request)
+        {
+            var result = await _mediator.Send(new CreateVenueCommand(request));
+            return CreatedAtAction(nameof(GetById), new { id = result.VenueId }, result);
+        }
 
-            return Ok(venue);
+        [HttpPut]
+        public async Task<IActionResult> Update([FromBody] UpdateVenueRequest request)
+        {
+            var result = await _mediator.Send(new UpdateVenueCommad(request));
+            return Ok(result);
+        }
+
+        [HttpDelete("{id:guid}")]
+        public async Task<IActionResult> Delete(Guid id)
+        {
+            var request = new DeleteVenueRequest { VenueId = id };
+            var result = await _mediator.Send(new DeleteVenueCommand(request));
+            return Ok(result);
+            
         }
     }
 }

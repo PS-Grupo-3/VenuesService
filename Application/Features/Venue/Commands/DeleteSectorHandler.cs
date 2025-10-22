@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace Application.Features.Venue.Commands
 {
-    public class DeleteVenueHandler : IRequestHandler<DeleteVenueCommand, GenericResponse>
+    public class DeleteSectorHandler : IRequestHandler<DeleteSectorCommand, GenericResponse>
     {
-        public Task<GenericResponse> Handle(DeleteVenueCommand request, CancellationToken cancellationToken)
+        public Task<GenericResponse> Handle(DeleteSectorCommand request, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }

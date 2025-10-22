@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Application.Features.VenueType.Queries
 {
-    internal class GetAllVenueTypesQuery
+    public class GetAllVenueTypesQuery
     {
     }
 }

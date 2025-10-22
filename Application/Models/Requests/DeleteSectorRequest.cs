@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.Features.VenueType.Queries
+namespace Application.Models.Requests
 {
-    public class GetVenueTypeByIdHandler
+    public class DeleteSectorRequest
     {
+        public Guid SectorId { get; set; }
     }
 }
