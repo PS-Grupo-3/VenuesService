@@ -1,4 +1,6 @@
-﻿using System.Reflection;
+﻿using MediatR;
+using Microsoft.Extensions.DependencyInjection;
+using Application.Features.Seat.Commands;
 
 namespace VenueService.Dependencyinj
 {
@@ -6,10 +8,8 @@ namespace VenueService.Dependencyinj
     {
         public static IServiceCollection AddApplication(this IServiceCollection services)
         {
-            // MediatR
-            services.AddMediatR(cfg =>
-                cfg.RegisterServicesFromAssembly(Assembly.Load("Application"))
-            );
+            // Registra todos los handlers del ensamblado donde está UpdateSeatHandler
+            services.AddMediatR(typeof(UpdateSeatHandler).Assembly);
 
             return services;
         }

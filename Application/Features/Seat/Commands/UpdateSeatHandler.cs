@@ -1,12 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Application.Models.Responses;
+using MediatR;
 
 namespace Application.Features.Seat.Commands
 {
-    internal class UpdateSeatHandler
+    public class UpdateSeatHandler : IRequestHandler<UpdateSeatCommand, GenericResponse>
     {
+        public Task<GenericResponse> Handle(UpdateSeatCommand request, CancellationToken cancellationToken)
+        {
+            // TODO: Implementar
+            throw new NotImplementedException();
+        }
     }
 }

@@ -1,12 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Application.Models.Responses;
+using MediatR;
 
 namespace Application.Features.Venue.Queries
 {
-    internal class GetAllVenuesHandler
+    public class GetAllVenuesHandler : IRequestHandler<GetAllVenuesQuery, List<VenueResponse>>
     {
+        public Task<List<VenueResponse>> Handle(GetAllVenuesQuery request, CancellationToken cancellationToken)
+        {
+            // TODO: Implementar
+            throw new NotImplementedException();
+        }
     }
 }

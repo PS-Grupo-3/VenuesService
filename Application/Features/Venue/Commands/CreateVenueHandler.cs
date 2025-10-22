@@ -1,9 +1,11 @@
-﻿using Application.Models.Responses;
+﻿
+using Application.Features.Venue.Commands;
+using Application.Models.Responses;
 using MediatR;
 
-namespace Application.Features.Event.Commands
+namespace Application.Features.Venue.Commands
 {
-    public class CreateEventHandler : IRequestHandler<CreateVenueCommand, VenueResponse>
+    public class CreateVenueHandler : IRequestHandler<CreateVenueCommand, VenueResponse>
     {
         public Task<VenueResponse> Handle(CreateVenueCommand request, CancellationToken cancellationToken)
         {

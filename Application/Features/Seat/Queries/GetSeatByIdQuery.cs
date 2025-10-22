@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Application.Models.Responses;
+using MediatR;
 
 namespace Application.Features.Seat.Queries
 {
-    internal class GetSeatByIdQuery
-    {
-    }
+    public record GetSeatByIdQuery(Guid SeatId) : IRequest<SeatDetailResponse>;
 }

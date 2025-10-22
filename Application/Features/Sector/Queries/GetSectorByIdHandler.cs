@@ -1,12 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Application.Features.Sector.Queries;
+using Application.Features.Seat.Queries;
+using Application.Models.Responses;
+using MediatR;
 
 namespace Application.Features.Sector.Queries
 {
-    internal class GetSectorByIdHandler
+    public class GetSectorByIdHandler : IRequestHandler<GetSectorByIdQuery, SectorDetailResponse>
     {
+        public Task<SectorDetailResponse> Handle(GetSectorByIdQuery request, CancellationToken cancellationToken)
+        {
+            // TODO: Implementar 
+            throw new NotImplementedException();
+        }
     }
 }

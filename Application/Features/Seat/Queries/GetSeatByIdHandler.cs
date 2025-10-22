@@ -1,12 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Application.Models.Responses;
+using MediatR;
 
 namespace Application.Features.Seat.Queries
 {
-    internal class GetSeatByIdHandler
+    public class GetSeatByIdHandler : IRequestHandler<GetSeatByIdQuery, SeatDetailResponse>
     {
+        public Task<SeatDetailResponse> Handle(GetSeatByIdQuery request, CancellationToken cancellationToken)
+        {
+            // TODO: Implementar 
+            throw new NotImplementedException();
+        }
     }
 }

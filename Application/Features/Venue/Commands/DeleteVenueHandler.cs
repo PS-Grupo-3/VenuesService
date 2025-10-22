@@ -1,15 +1,12 @@
-﻿using Application.Features.Venue.Commands;
-using Application.Models.Responses;
-using MediatR;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace Application.Features.Event.Commands
+namespace Application.Features.Venue.Commands
 {
-    public class DeleteVenueHandler : IRequestHandler<DeleteVenueCommand>
+    internal class DeleteVenueHandler
     {
-        public async Task Handle(DeleteVenueCommand request, CancellationToken cancellationToken)
-        {
-            // TODO: Implementar
-            throw new NotImplementedException();
-        }
     }
 }

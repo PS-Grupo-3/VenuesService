@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Application.Models.Responses;
+using MediatR;
 
 namespace Application.Features.Sector.Queries
 {
-    internal class GetSectorByIdQuery
-    {
-    }
+    public record GetSectorByIdQuery(Guid SectorId) : IRequest<SectorDetailResponse>;
 }

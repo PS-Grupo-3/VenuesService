@@ -1,12 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Application.Models.Responses;
+using MediatR;
 
 namespace Application.Features.Sector.Queries
 {
-    internal class GetAllSectorsHandler
+    public class GetAllSectorsHandler : IRequestHandler<GetAllSectorsQuery, List<SectorResponse>>
     {
+        public Task<List<SectorResponse>> Handle(GetAllSectorsQuery request, CancellationToken cancellationToken)
+        {
+            // TODO: Implementar
+            throw new NotImplementedException();
+        }
     }
 }
