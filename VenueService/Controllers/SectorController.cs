@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace VenueService.Controllers
 {
-    [Route("api/v1//[controller]")]
+    [Route("api/v1/[controller]")]
     [ApiController]
     public class SectorController : ControllerBase
     {

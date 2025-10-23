@@ -24,6 +24,7 @@ namespace VenueService.Dependencyinj
             services.AddScoped<ISeatQuery, SeatQuery>();
             services.AddScoped<ISectorQuery, SectorQuery>();
             services.AddScoped<IVenueQuery, VenueQuery>();
+            services.AddScoped<IVenueTypeQuery, VenueTypeQuery>();
 
             return services;
         }

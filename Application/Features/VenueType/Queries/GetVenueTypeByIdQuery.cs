@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using Application.Models.Responses;
+using MediatR;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Application.Features.VenueType.Queries
 {
-    public record GetVenueTypeByIdQuery(int TypeId) :IRequest
+    public record GetVenueTypeByIdQuery(int TypeId) :IRequest<VenueTypeResponse>
     {
     }
 }

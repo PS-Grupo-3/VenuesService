@@ -1,5 +1,7 @@
 ﻿
 using Application.Features.Venue.Commands;
+using Application.Interfaces.Command;
+using Application.Interfaces.Query;
 using Application.Models.Responses;
 using MediatR;
 
@@ -7,10 +9,56 @@ namespace Application.Features.Venue.Commands
 {
     public class CreateVenueHandler : IRequestHandler<CreateVenueCommand, VenueResponse>
     {
-        public Task<VenueResponse> Handle(CreateVenueCommand request, CancellationToken cancellationToken)
+        private readonly IVenueCommand _venueCommand;
+        private readonly IVenueTypeQuery _venueTypeQuery;
+
+        public CreateVenueHandler(IVenueCommand venueCommand, IVenueTypeQuery venueTypeQuery)
         {
-            // TODO: Implementar 
-            throw new NotImplementedException();
+            _venueCommand = venueCommand;
+            _venueTypeQuery = venueTypeQuery;
+        }
+
+
+
+
+
+        // 4. Lógica de "Handle" implementada
+        public async Task<VenueResponse> Handle(CreateVenueCommand request, CancellationToken cancellationToken)
+        {
+            var type = await _venueTypeQuery.GetByIdAsync(request.Request.VenueTypeId, cancellationToken);
+            if (type == null)
+            {
+                throw new KeyNotFoundException("No existe un tipo con ese ID");
+            }
+            var venue = new Domain.Entities.Venue
+            {
+                VenueId = Guid.NewGuid(),
+                VenueType = request.Request.VenueTypeId,
+                Adress = request.Request.Address,
+                Name = request.Request.Name,
+                Location = request.Request.Location,
+                MapUrl = request.Request.MapUrl,
+                TotalCapacity = request.Request.TotalCapacity,
+
+
+            };
+
+            await _venueCommand.InsertAsync(venue, cancellationToken);
+
+            return new VenueResponse
+            {
+                VenueId = venue.VenueId,
+                Name = venue.Name,
+                Location = venue.Location,
+                TotalCapacity = venue.TotalCapacity,
+                VenueType = new VenueTypeResponse
+                {
+                    VenueTypeId = type.VenueTypeId,
+                    Name = type.Name
+                    
+                }
+            };
+
         }
     }
 }

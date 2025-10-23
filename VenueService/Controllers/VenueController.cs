@@ -9,7 +9,7 @@ using Application.Features.Venue.Commands;
 
 namespace VenueService.Controllers
 {
-    [Route("api/v1//[controller]")]
+    [Route("api/v1/[controller]")]
     [ApiController]
     public class VenueController : ControllerBase
     {
@@ -23,10 +23,10 @@ namespace VenueService.Controllers
 
 
         [HttpGet]
-        public async Task<IActionResult> GetAll()
+        public async Task<IActionResult> GetAll([FromQuery]string? name, [FromQuery]string? location, [FromQuery]int? totalCapacity, [FromQuery]int? venueTypeId, [FromQuery]string? address,[FromQuery] string? mapUrl, [FromQuery] SortDirection? sortByCapacity)
         {
 
-            var result = await _mediator.Send(new GetAllVenuesQuery());
+            var result = await _mediator.Send(new GetAllVenuesQuery(name,location,totalCapacity,venueTypeId,address,mapUrl, sortByCapacity));
             return Ok(result);
         }
 
