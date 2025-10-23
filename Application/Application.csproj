@@ -11,9 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\Seat\Commands\" />
     <Folder Include="Features\Seat\Queries\" />
-    <Folder Include="Features\Sector\Commands\" />
     <Folder Include="Features\Sector\Queries\" />
     <Folder Include="Features\VenueType\Queries\" />
     <Folder Include="Features\Venue\Queries\" />

@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Application.Models.Requests;
+using Application.Models.Responses;
+using MediatR;
 
 namespace Application.Features.Sector.Commands
 {
-    internal class DeleteSectorCommand
-    {
-    }
+    public record DeleteSectorCommand(DeleteSectorRequest request) : IRequest<GenericResponse>;
 }

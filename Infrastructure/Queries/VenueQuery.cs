@@ -22,7 +22,11 @@ namespace Infrastructure.Queries
 
         public async Task<Venue?> GetByIdAsync(Guid id, CancellationToken cancellationToken = default)
         {
-            return await _context.Venues.FindAsync(id, cancellationToken);
+            return await _context.Venues
+                .Include(v => v.VenueTypeNavigation)
+                .Include(v => v.Sectors)
+                .AsNoTracking()
+                .FirstOrDefaultAsync(v => v.VenueId == id, cancellationToken);
         }
 
         public async Task<IReadOnlyList<Venue>> GetAllAsync(

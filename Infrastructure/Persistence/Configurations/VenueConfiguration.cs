@@ -25,7 +25,7 @@ namespace Infrastructure.Persistence.Configurations
             builder.Property(venue => venue.TotalCapacity)
                 .IsRequired();
 
-            builder.Property(venue => venue.Adress)
+            builder.Property(venue => venue.Address)
                 .IsRequired();
 
             builder.Property(venue => venue.MapUrl)

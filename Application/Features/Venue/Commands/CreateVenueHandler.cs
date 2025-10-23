@@ -34,7 +34,7 @@ namespace Application.Features.Venue.Commands
             {
                 VenueId = Guid.NewGuid(),
                 VenueType = request.Request.VenueTypeId,
-                Adress = request.Request.Address,
+                Address = request.Request.Address,
                 Name = request.Request.Name,
                 Location = request.Request.Location,
                 MapUrl = request.Request.MapUrl,

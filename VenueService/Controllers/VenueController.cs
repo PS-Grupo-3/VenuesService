@@ -23,10 +23,10 @@ namespace VenueService.Controllers
 
 
         [HttpGet]
-        public async Task<IActionResult> GetAll([FromQuery]string? name, [FromQuery]string? location, [FromQuery]int? totalCapacity, [FromQuery]int? venueTypeId, [FromQuery]string? address,[FromQuery] string? mapUrl, [FromQuery] SortDirection? sortByCapacity)
+        public async Task<IActionResult> GetAll([FromQuery]string? name, [FromQuery]string? location, [FromQuery]int? venueTypeId, [FromQuery] SortDirection? sortByCapacity)
         {
 
-            var result = await _mediator.Send(new GetAllVenuesQuery(name,location,totalCapacity,venueTypeId,address,mapUrl, sortByCapacity));
+            var result = await _mediator.Send(new GetAllVenuesQuery(name,location,venueTypeId, sortByCapacity));
             return Ok(result);
         }
 
@@ -45,10 +45,18 @@ namespace VenueService.Controllers
             return CreatedAtAction(nameof(GetById), new { id = result.VenueId }, result);
         }
 
-        [HttpPut]
-        public async Task<IActionResult> Update([FromBody] UpdateVenueRequest request)
+        [HttpPut("{id:guid}")]
+        public async Task<IActionResult> Update(Guid id, [FromBody] UpdateVenueRequest request) 
         {
-            var result = await _mediator.Send(new UpdateVenueCommad(request));
+            var command = new UpdateVenueCommand(id, request);
+
+            var result = await _mediator.Send(command);
+
+            if (!result.Success)
+            {
+                return NotFound(result);
+            }
+
             return Ok(result);
         }
 

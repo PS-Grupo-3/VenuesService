@@ -4,5 +4,5 @@ using MediatR;
 
 namespace Application.Features.Venue.Commands
 {
-    public record UpdateVenueCommad(UpdateVenueRequest Request) : IRequest<GenericResponse>;
+    public record UpdateVenueCommand( Guid VenueId,UpdateVenueRequest Request) : IRequest<GenericResponse>;
 }

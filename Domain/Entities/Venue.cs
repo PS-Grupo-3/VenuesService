@@ -19,7 +19,7 @@ namespace Domain.Entities
         public string Location { get; set; }
         public long TotalCapacity { get; set; }
 
-        public string Adress { get; set; }
+        public string Address { get; set; }
 
         public string MapUrl { get; set; }
 

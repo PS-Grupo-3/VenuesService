@@ -1,14 +1,41 @@
-﻿using Application.Models.Responses;
+﻿using Application.Interfaces.Command;
+using Application.Interfaces.Query;
+using Application.Models.Responses;
 using MediatR;
 
 namespace Application.Features.Venue.Commands
 {
-    public class UpdateVenueCommand : IRequestHandler<UpdateVenueCommad, GenericResponse>
+    public class UpdateVenueHandler : IRequestHandler<UpdateVenueCommand, GenericResponse>
     {
-        public Task<GenericResponse> Handle(UpdateVenueCommad request, CancellationToken cancellationToken)
+
+        private readonly IVenueCommand _venueCommand;
+        private readonly IVenueQuery _venueQuery;
+
+        public UpdateVenueHandler(IVenueCommand venueCommand, IVenueQuery venueQuery)
         {
-            // TODO: Implementar
-            throw new NotImplementedException();
+            _venueCommand = venueCommand;
+            _venueQuery = venueQuery;
+        }
+
+        public async Task<GenericResponse> Handle(UpdateVenueCommand command, CancellationToken cancellationToken)
+        {
+ 
+            var venue = await _venueQuery.GetByIdAsync(command.VenueId, cancellationToken);
+
+            if (venue == null)
+            {
+                return new GenericResponse { Success = false, Message = "Venue no encontrado." };
+            }
+
+            venue.Name = command.Request.Name;
+            venue.Location = command.Request.Location;
+            venue.TotalCapacity = command.Request.TotalCapacity;
+            venue.VenueTypeNavigation.VenueTypeId = command.Request.VenueTypeId;
+            venue.Address = command.Request.Address;
+            venue.MapUrl = command.Request.MapUrl;
+            await _venueCommand.UpdateAsync(venue, cancellationToken);
+
+            return new GenericResponse { Success = true, Message = "Venue actualizado correctamente." };
         }
     }
 }

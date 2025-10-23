@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Application.Features.Seat.Commands;
+using Application.Models.Requests;
+using Application.Models.Responses;
+using MediatR;
 
-namespace Application.Features.Seat.Commands
+namespace Application.Features.Venue.Commands
 {
-    internal class DeleteSeatCommand
-    {
-    }
+    public record DeleteSeatCommand(DeleteSeatRequest request) : IRequest<GenericResponse>;
 }

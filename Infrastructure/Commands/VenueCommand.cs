@@ -21,7 +21,7 @@ namespace Infrastructure.Commands
         public async Task DeleteAsync(Venue venue, CancellationToken cancellationToken = default)
         {
             _context.Venues.Remove(venue);
-            await _context.SaveChangesAsync();
+            await _context.SaveChangesAsync(cancellationToken); 
         }
 
         public async Task InsertAsync(Venue venue, CancellationToken cancellationToken = default)
