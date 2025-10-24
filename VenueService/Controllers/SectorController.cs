@@ -21,11 +21,13 @@ namespace VenueService.Controllers
         }
 
 
-        [HttpGet]
-        public async Task<IActionResult> GetAll()
+        [HttpGet("/api/v1/venues/{venueId:guid}/sectors")]
+        public async Task<IActionResult> GetSectorsForVenue(Guid venueId)
         {
+            // 1. Creas un Query que ACEPTA el venueId
+            var query = new GetSectorsForVenueQuery(venueId);
 
-            var result = await _mediator.Send(new GetAllSectorsQuery());
+            var result = await _mediator.Send(query);
             return Ok(result);
         }
 
@@ -37,17 +39,33 @@ namespace VenueService.Controllers
 
         }
 
-        [HttpPost]
-        public async Task<IActionResult> Create([FromBody] CreateSectorRequest request)
-        {
-            var result = await _mediator.Send(new CreateSectorCommand(request));
-            return CreatedAtAction(nameof(GetById), new { id = result.SectorId }, result);
+        [HttpPost("{venueId:guid}/sectors")]
+        public async Task<IActionResult> CreateSector(Guid venueId, [FromBody] CreateSectorRequest request)
+        { 
+            var command = new CreateSectorCommand(venueId, request);
+
+            var response = await _mediator.Send(command);
+
+            return CreatedAtAction(
+                nameof(SectorController.GetById), 
+                "Sector",
+                new { id = response.SectorId },
+                response
+            );
         }
 
-        [HttpPut]
-        public async Task<IActionResult> Update([FromBody] UpdateSectorRequest request)
+        [HttpPut("{id:guid}")] 
+        public async Task<IActionResult> Update(Guid id, [FromBody] UpdateSectorRequest request) 
         {
-            var result = await _mediator.Send(new UpdateSectorCommand(request));
+            var command = new UpdateSectorCommand(id, request);
+
+            var result = await _mediator.Send(command);
+
+            if (!result.Success)
+            {
+                return NotFound(result);
+            }
+
             return Ok(result);
         }
 

@@ -8,6 +8,6 @@ namespace Application.Models.Requests
 {
     public class DeleteSeatRequest
     {
-        public Guid SeatId { get; set; }
+        public long SeatId { get; set; }
     }
 }

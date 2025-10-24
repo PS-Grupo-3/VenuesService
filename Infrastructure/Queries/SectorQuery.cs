@@ -1,5 +1,7 @@
 ﻿using Application.Interfaces.Query;
+using Domain.Entities;
 using Infrastructure.Persistence;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,5 +18,23 @@ namespace Infrastructure.Queries
         {
             _context = context;
         }
+
+        public async Task<Sector?> GetByIdAsync(Guid id, CancellationToken cancellationToken = default)
+        {
+            return await _context.Sectors
+                .Include(s => s.Seats)
+                .AsNoTracking()
+                .FirstOrDefaultAsync(s => s.SectorId == id, cancellationToken);
+        }
+
+        public async Task<IReadOnlyList<Sector>> GetSectorsByVenueIdAsync(Guid venueId, CancellationToken cancellationToken = default)
+        {
+            return await _context.Sectors
+                .Where(s => s.Venue == venueId)
+                .AsNoTracking()
+                .ToListAsync(cancellationToken);
+        }
+
+        
     }
 }

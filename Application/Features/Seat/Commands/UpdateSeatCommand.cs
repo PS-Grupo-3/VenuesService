@@ -4,5 +4,5 @@ using MediatR;
 
 namespace Application.Features.Seat.Commands
 {
-    public record UpdateSeatCommand(UpdateSeatRequest Request) : IRequest<GenericResponse>;
+    public record UpdateSeatCommand(long SeatId, UpdateSeatRequest Request) : IRequest<GenericResponse>;
 }

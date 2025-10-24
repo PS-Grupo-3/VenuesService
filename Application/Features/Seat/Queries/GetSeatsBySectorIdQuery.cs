@@ -3,5 +3,5 @@ using MediatR;
 
 namespace Application.Features.Seat.Queries
 {
-    public record GetAllSeatsQuery() : IRequest<List<SeatResponse>>;
+    public record GetSeatsBySectorIdQuery(Guid SectorId) : IRequest<IReadOnlyList<SeatResponse>>;
 }

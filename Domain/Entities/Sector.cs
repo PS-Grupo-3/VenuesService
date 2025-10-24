@@ -27,8 +27,6 @@ namespace Domain.Entities
 
         public ICollection<Seat> Seats { get; set; }
 
-        public Seat SeatNavigation { get; set; }
-
        
     }
 }

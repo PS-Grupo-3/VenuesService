@@ -21,20 +21,19 @@ namespace VenueService.Controllers
         }
 
 
-        [HttpGet]
-        public async Task<IActionResult> GetAll()
+        [HttpGet("{sectorId:guid}/seats")]
+        public async Task<IActionResult> GetSeatsForSector(Guid sectorId)
         {
-
-            var result = await _mediator.Send(new GetAllSeatsQuery());
+            var query = new GetSeatsBySectorIdQuery(sectorId);
+            var result = await _mediator.Send(query);
             return Ok(result);
         }
 
-        [HttpGet("{id:guid}")]
-        public async Task<IActionResult> GetById(Guid id)
+        [HttpGet("{id:long}")] 
+        public async Task<IActionResult> GetById(long id) 
         {
             var result = await _mediator.Send(new GetSeatByIdQuery(id));
             return Ok(result);
-
         }
 
         [HttpPost]
@@ -44,20 +43,33 @@ namespace VenueService.Controllers
             return CreatedAtAction(nameof(GetById), new { id = result.SeatId }, result);
         }
 
-        [HttpPut]
-        public async Task<IActionResult> Update([FromBody] UpdateSeatRequest request)
+        [HttpPut("{id:long}")] 
+        public async Task<IActionResult> Update(long id, [FromBody] UpdateSeatRequest request) 
         {
-            var result = await _mediator.Send(new UpdateSeatCommand(request));
+            var command = new UpdateSeatCommand(id, request);
+
+            var result = await _mediator.Send(command);
+
+            if (!result.Success)
+            {
+                return NotFound(result);
+            }
+
             return Ok(result);
         }
 
-        [HttpDelete("{id:guid}")]
-        public async Task<IActionResult> Delete(Guid id)
+        [HttpDelete("{id:long}")] 
+        public async Task<IActionResult> Delete(long id) 
         {
             var request = new DeleteSeatRequest { SeatId = id };
             var result = await _mediator.Send(new DeleteSeatCommand(request));
-            return Ok(result);
 
+            if (!result.Success)
+            {
+                return NotFound(result);
+            }
+
+            return Ok(result);
         }
     }
 }

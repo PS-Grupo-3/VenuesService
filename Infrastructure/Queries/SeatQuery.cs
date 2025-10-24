@@ -1,10 +1,10 @@
 ﻿using Application.Interfaces.Query;
+using Domain.Entities;
 using Infrastructure.Persistence;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using Microsoft.EntityFrameworkCore;
+using System.Threading;
 using System.Threading.Tasks;
+using System.Linq;
 
 namespace Infrastructure.Queries
 {
@@ -15,6 +15,23 @@ namespace Infrastructure.Queries
         public SeatQuery(AppDbContext context)
         {
             _context = context;
+        }
+
+        public async Task<Seat?> GetByIdAsync(long id, CancellationToken cancellationToken = default)
+        {
+            return await _context.Seats
+                .Include(seat => seat.SectorNavigation)
+                .ThenInclude(sector => sector.VenueNavigation)
+                .AsNoTracking()
+                .FirstOrDefaultAsync(s => s.SeatId == id, cancellationToken);
+        }
+
+        public async Task<IReadOnlyList<Seat>> GetSeatsBySectorIdAsync(Guid sectorId, CancellationToken cancellationToken = default)
+        {
+            return await _context.Seats
+                .Where(s => s.SectorId == sectorId) 
+                .AsNoTracking()
+                .ToListAsync(cancellationToken);
         }
     }
 }

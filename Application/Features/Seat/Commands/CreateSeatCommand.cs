@@ -5,5 +5,4 @@ using MediatR;
 namespace Application.Features.Seat.Commands
 {
     public record CreateSeatCommand(CreateSeatRequest Request) : IRequest<SeatResponse>;
-
 }

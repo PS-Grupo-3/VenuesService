@@ -4,5 +4,5 @@ using MediatR;
 
 namespace Application.Features.Sector.Commands
 {
-    public record UpdateSectorCommand(UpdateSectorRequest Request) : IRequest<GenericResponse>;
+    public record UpdateSectorCommand(Guid SectorId, UpdateSectorRequest Request) : IRequest<GenericResponse>;
 }

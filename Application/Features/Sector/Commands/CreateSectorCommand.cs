@@ -4,6 +4,6 @@ using MediatR;
 
 namespace Application.Features.Sector.Commands
 {
-    public record CreateSectorCommand(CreateSectorRequest Request) : IRequest<SectorResponse>;
+    public record CreateSectorCommand(Guid id, CreateSectorRequest Request) : IRequest<SectorResponse>;
 
 }

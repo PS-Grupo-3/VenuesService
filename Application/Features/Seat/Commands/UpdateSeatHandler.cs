@@ -1,14 +1,38 @@
-﻿using Application.Models.Responses;
+﻿using Application.Interfaces.Command;
+using Application.Interfaces.Query;
+using Application.Features.Seat.Commands;
+using Application.Models.Responses;
 using MediatR;
+using System.Threading;
+using System.Threading.Tasks;
 
-namespace Application.Features.Seat.Commands
+namespace Application.Features.Seat.Handlers
 {
-    public class UpdateSeatHandler : IRequestHandler<UpdateSeatCommand, GenericResponse>
+    public class UpdateSeatHandler: IRequestHandler<UpdateSeatCommand, GenericResponse>
     {
-        public Task<GenericResponse> Handle(UpdateSeatCommand request, CancellationToken cancellationToken)
+        private readonly ISeatCommand _seatCommand;
+        private readonly ISeatQuery _seatQuery;
+
+        public UpdateSeatHandler(ISeatCommand seatCommand, ISeatQuery seatQuery)
         {
-            // TODO: Implementar
-            throw new NotImplementedException();
+            _seatCommand = seatCommand;
+            _seatQuery = seatQuery;
+        }
+
+        public async Task<GenericResponse> Handle(UpdateSeatCommand command, CancellationToken cancellationToken)
+        {
+            var seat = await _seatQuery.GetByIdAsync(command.SeatId, cancellationToken);
+
+            if (seat == null)
+            {
+                return new GenericResponse { Success = false, Message = "Asiento no encontrado." };
+            }
+            seat.RowNumber = command.Request.RowNumber;
+            seat.ColumnNumber = command.Request.ColumnNumber;
+
+            await _seatCommand.UpdateAsync(seat, cancellationToken);
+
+            return new GenericResponse { Success = true, Message = "Asiento actualizado correctamente." };
         }
     }
 }
