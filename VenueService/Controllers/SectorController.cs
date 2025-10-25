@@ -1,7 +1,5 @@
 ﻿using Application.Features.Sector.Commands;
 using Application.Features.Sector.Queries;
-using Application.Features.Venue.Commands;
-using Application.Features.Venue.Queries;
 using Application.Models.Requests;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;

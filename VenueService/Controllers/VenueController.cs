@@ -1,7 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Infrastructure.Persistence; 
-using Domain.Entities;          
-using Microsoft.EntityFrameworkCore; 
 using MediatR;
 using Application.Features.Venue.Queries;
 using Application.Models.Requests;

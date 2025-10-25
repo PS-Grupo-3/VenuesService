@@ -1,6 +1,4 @@
 ﻿using MediatR;
-using Microsoft.Extensions.DependencyInjection;
-using Application.Features.Seat.Commands;
 using Application.Features.Seat.Handlers;
 
 namespace VenueService.Dependencyinj
