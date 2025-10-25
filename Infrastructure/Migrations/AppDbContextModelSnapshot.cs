@@ -39,16 +39,9 @@ namespace Infrastructure.Migrations
                     b.Property<Guid>("SectorId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("SectorId1")
-                        .HasColumnType("uniqueidentifier");
-
                     b.HasKey("SeatId");
 
                     b.HasIndex("SectorId");
-
-                    b.HasIndex("SectorId1")
-                        .IsUnique()
-                        .HasFilter("[SectorId1] IS NOT NULL");
 
                     b.ToTable("Seat", (string)null);
                 });
@@ -166,10 +159,6 @@ namespace Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("Domain.Entities.Sector", null)
-                        .WithOne("SeatNavigation")
-                        .HasForeignKey("Domain.Entities.Seat", "SectorId1");
-
                     b.Navigation("SectorNavigation");
                 });
 
@@ -197,9 +186,6 @@ namespace Infrastructure.Migrations
 
             modelBuilder.Entity("Domain.Entities.Sector", b =>
                 {
-                    b.Navigation("SeatNavigation")
-                        .IsRequired();
-
                     b.Navigation("Seats");
                 });
 

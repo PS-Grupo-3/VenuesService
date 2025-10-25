@@ -3,10 +3,12 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
+#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
+
 namespace Infrastructure.Migrations
 {
     /// <inheritdoc />
-    public partial class PrimeraMigracion : Migration
+    public partial class migracionLimpia : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -32,6 +34,8 @@ namespace Infrastructure.Migrations
                     Name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     Location = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: false),
                     TotalCapacity = table.Column<long>(type: "bigint", nullable: false),
+                    Address = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    MapUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     VenueType = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -51,11 +55,10 @@ namespace Infrastructure.Migrations
                 {
                     SectorId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    ControlledSector = table.Column<bool>(type: "bit", nullable: false),
-                    Venue = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    SectorType = table.Column<string>(type: "nvarchar(13)", maxLength: 13, nullable: false),
-                    SeatCount = table.Column<long>(type: "bigint", nullable: true),
-                    Capacity = table.Column<long>(type: "bigint", nullable: true)
+                    IsControlled = table.Column<bool>(type: "bit", nullable: false),
+                    SeatCount = table.Column<int>(type: "int", nullable: true),
+                    Capacity = table.Column<int>(type: "int", nullable: true),
+                    Venue = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -76,23 +79,33 @@ namespace Infrastructure.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     RowNumber = table.Column<int>(type: "int", nullable: false),
                     ColumnNumber = table.Column<int>(type: "int", nullable: false),
-                    ControlledSector = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                    SectorId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Seat", x => x.SeatId);
                     table.ForeignKey(
-                        name: "FK_Seat_Sector_ControlledSector",
-                        column: x => x.ControlledSector,
+                        name: "FK_Seat_Sector_SectorId",
+                        column: x => x.SectorId,
                         principalTable: "Sector",
                         principalColumn: "SectorId",
                         onDelete: ReferentialAction.Restrict);
                 });
 
+            migrationBuilder.InsertData(
+                table: "VenueType",
+                columns: new[] { "VenueTypeId", "Name" },
+                values: new object[,]
+                {
+                    { 1, "Stadium" },
+                    { 2, "Theater" },
+                    { 3, "Field" }
+                });
+
             migrationBuilder.CreateIndex(
-                name: "IX_Seat_ControlledSector",
+                name: "IX_Seat_SectorId",
                 table: "Seat",
-                column: "ControlledSector");
+                column: "SectorId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Sector_Venue",

@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20251023191001_finalmigration")]
-    partial class finalmigration
+    [Migration("20251025234040_migracionLimpia")]
+    partial class migracionLimpia
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -42,16 +42,9 @@ namespace Infrastructure.Migrations
                     b.Property<Guid>("SectorId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("SectorId1")
-                        .HasColumnType("uniqueidentifier");
-
                     b.HasKey("SeatId");
 
                     b.HasIndex("SectorId");
-
-                    b.HasIndex("SectorId1")
-                        .IsUnique()
-                        .HasFilter("[SectorId1] IS NOT NULL");
 
                     b.ToTable("Seat", (string)null);
                 });
@@ -92,7 +85,7 @@ namespace Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("Adress")
+                    b.Property<string>("Address")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -169,10 +162,6 @@ namespace Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("Domain.Entities.Sector", null)
-                        .WithOne("SeatNavigation")
-                        .HasForeignKey("Domain.Entities.Seat", "SectorId1");
-
                     b.Navigation("SectorNavigation");
                 });
 
@@ -200,9 +189,6 @@ namespace Infrastructure.Migrations
 
             modelBuilder.Entity("Domain.Entities.Sector", b =>
                 {
-                    b.Navigation("SeatNavigation")
-                        .IsRequired();
-
                     b.Navigation("Seats");
                 });
 
