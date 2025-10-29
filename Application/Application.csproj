@@ -4,7 +4,15 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+	  <GenerateDocumentationFile>true</GenerateDocumentationFile>
+	  <NoWarn>$(NoWarn);1591</NoWarn>
+	  <!-- silencia warnings de doc -->
   </PropertyGroup>
+	<ItemGroup>
+		<!-- Necesario para RequestDelegate, HttpContext, ILogger, etc. -->
+		<FrameworkReference Include="Microsoft.AspNetCore.App" />
+	</ItemGroup>
+
 
   <ItemGroup>
     <Compile Remove="Response\**" />

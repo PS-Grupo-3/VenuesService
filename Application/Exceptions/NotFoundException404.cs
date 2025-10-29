@@ -1,8 +1,8 @@
 ﻿namespace Application.Exceptions
 {
-    public class NotFoundException404 : HttpException
+   
+    public sealed class NotFoundException : Exception
     {
-        public NotFoundException404(string message)
-            : base(404, message) { }
+        public NotFoundException(string message) : base(message) { }
     }
 }
