@@ -18,15 +18,12 @@ namespace Infrastructure.Persistence.Configurations
             builder.HasIndex(venue => venue.Name)
                 .IsUnique();
 
-            builder.Property(venue => venue.Location)
-                .IsRequired()
-                .HasMaxLength(150);
-
             builder.Property(venue => venue.TotalCapacity)
                 .IsRequired();
 
             builder.Property(venue => venue.Address)
-                .IsRequired();
+                .IsRequired()
+                .HasMaxLength(150);
 
             builder.Property(venue => venue.MapUrl)
                 .IsRequired();

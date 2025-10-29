@@ -31,7 +31,7 @@ namespace Infrastructure.Queries
 
         public async Task<IReadOnlyList<Venue>> GetAllAsync(
             string? name,
-            string? location,
+            string? address,
             SortDirection? sortByCapacity,
             int? typeId,
             CancellationToken cancellationToken = default)
@@ -44,9 +44,9 @@ namespace Infrastructure.Queries
                 query = query.Where(v => v.Name.Contains(name));
             }
 
-            if (!string.IsNullOrEmpty(location))
+            if (!string.IsNullOrEmpty(address))
             {
-                query = query.Where(v => v.Location.Contains(location));
+                query = query.Where(v => v.Address.Contains(address));
             }
 
             if (typeId.HasValue)

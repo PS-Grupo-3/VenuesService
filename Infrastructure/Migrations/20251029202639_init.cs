@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Infrastructure.Migrations
 {
     /// <inheritdoc />
-    public partial class migracionLimpia : Migration
+    public partial class init : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -32,9 +32,8 @@ namespace Infrastructure.Migrations
                 {
                     VenueId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    Location = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: false),
                     TotalCapacity = table.Column<long>(type: "bigint", nullable: false),
-                    Address = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Address = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: false),
                     MapUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     VenueType = table.Column<int>(type: "int", nullable: false)
                 },

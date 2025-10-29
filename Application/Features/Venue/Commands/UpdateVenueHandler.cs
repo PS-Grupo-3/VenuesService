@@ -28,7 +28,6 @@ namespace Application.Features.Venue.Commands
             }
 
             venue.Name = command.Request.Name;
-            venue.Location = command.Request.Location;
             venue.TotalCapacity = command.Request.TotalCapacity;
             venue.VenueTypeNavigation.VenueTypeId = command.Request.VenueTypeId;
             venue.Address = command.Request.Address;

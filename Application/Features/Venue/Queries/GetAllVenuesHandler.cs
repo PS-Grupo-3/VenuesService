@@ -21,7 +21,7 @@ namespace Application.Features.Venue.Queries
             {
                 VenueId = v.VenueId,
                 Name = v.Name,
-                Location = v.Location,
+                Address = v.Address,
                 TotalCapacity = v.TotalCapacity,
                 VenueType = new VenueTypeResponse
                 {
