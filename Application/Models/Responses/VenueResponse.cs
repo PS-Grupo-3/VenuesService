@@ -10,7 +10,7 @@ namespace Application.Models.Responses
     {
         public Guid VenueId { get; set; }
         public string Name { get; set; }
-        public string Location { get; set; }
+        public string Address { get; set; }
         public long TotalCapacity { get; set; }
         public VenueTypeResponse VenueType { get; set; }
     }

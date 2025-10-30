@@ -31,13 +31,13 @@ namespace VenueService.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<IActionResult> GetAll(
             [FromQuery] string? name,
-            [FromQuery] string? location,
+            [FromQuery] string? address,
             [FromQuery] int? venueTypeId,
             [FromQuery] SortDirection? sortByCapacity,
             CancellationToken ct = default)
         {
             var result = await _mediator.Send(
-                new GetAllVenuesQuery(name, location, venueTypeId, sortByCapacity),
+                new GetAllVenuesQuery(name, address, venueTypeId, sortByCapacity),
                 ct
             );
 

@@ -10,10 +10,9 @@ namespace Domain.Entities
         [Required, MaxLength(100)]
         public string Name { get; set; }
 
-        [MaxLength(150)]
-        public string Location { get; set; }
         public long TotalCapacity { get; set; }
 
+        [MaxLength(150)]
         public string Address { get; set; }
 
         public string MapUrl { get; set; }

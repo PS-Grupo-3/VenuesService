@@ -36,7 +36,6 @@ namespace Application.Features.Venue.Commands
                 VenueType = request.Request.VenueTypeId,
                 Address = request.Request.Address,
                 Name = request.Request.Name,
-                Location = request.Request.Location,
                 MapUrl = request.Request.MapUrl,
                 TotalCapacity = request.Request.TotalCapacity,
 
@@ -49,7 +48,7 @@ namespace Application.Features.Venue.Commands
             {
                 VenueId = venue.VenueId,
                 Name = venue.Name,
-                Location = venue.Location,
+                Address = venue.Address,
                 TotalCapacity = venue.TotalCapacity,
                 VenueType = new VenueTypeResponse
                 {
