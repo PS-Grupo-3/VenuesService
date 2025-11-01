@@ -1,5 +1,4 @@
-﻿
-namespace Application.Features.Sector.Handlers
+﻿namespace Application.Features.Sector.Handlers
 {
     using Application.Interfaces.Query;
     using Application.Features.Sector.Queries;
@@ -57,7 +56,11 @@ namespace Application.Features.Sector.Handlers
                     SeatId = seat.SeatId,
                     RowNumber = seat.RowNumber,
                     ColumnNumber = seat.ColumnNumber
-                }).ToList()
+                }).ToList(),
+                SectorWidth = sector.Width,
+                SectorHeight = sector.Height,
+                RowNumber = sector.RowNumber,
+                ColumnNumber = sector.ColumnNumber,
             };
         }
     }

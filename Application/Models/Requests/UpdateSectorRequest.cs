@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace Application.Models.Requests
 {
@@ -20,6 +17,12 @@ namespace Application.Models.Requests
 
         [Range(0, int.MaxValue)]
         public int? Capacity { get; set; }
+
+        [Range(1, int.MaxValue)]
+        public int Width { get; set; }
+
+        [Range(1, int.MaxValue)]
+        public int Height { get; set; }
 
         [Required]
         public ShapeRequestData Shape { get; set; } = null!;
