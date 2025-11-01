@@ -1,10 +1,14 @@
-﻿using Application.Interfaces.Command;
-using Application.Interfaces.Query;
-using Application.Models.Responses;
-using MediatR;
-
-namespace Application.Features.Sector.Commands
+﻿// 1. Namespace corregido
+namespace Application.Features.Sector.Handlers
 {
+    using Application.Interfaces.Command;
+    using Application.Interfaces.Query;
+    using Application.Features.Sector.Commands;
+    using Application.Models.Responses;
+    using MediatR;
+    using System.Threading;
+    using System.Threading.Tasks;
+
     public class UpdateSectorHandler : IRequestHandler<UpdateSectorCommand, GenericResponse>
     {
         private readonly ISectorCommand _sectorCommand;
@@ -24,8 +28,9 @@ namespace Application.Features.Sector.Commands
             {
                 return new GenericResponse { Success = false, Message = "Sector no encontrado." };
             }
+
             sector.Name = command.Request.Name;
-            sector.IsControlled = command.Request.isControlled;
+            sector.IsControlled = command.Request.IsControlled;
 
             if (sector.IsControlled)
             {
@@ -37,7 +42,24 @@ namespace Application.Features.Sector.Commands
                 sector.Capacity = command.Request.Capacity;
                 sector.SeatCount = null;
             }
-            await _sectorCommand.UpdateAsync(sector, cancellationToken);
+
+            var shapeEntity = sector.Shape; 
+            var shapeDto = command.Request.Shape;
+
+            shapeEntity.Type = shapeDto.Type;
+            shapeEntity.Width = shapeDto.Width;
+            shapeEntity.Height = shapeDto.Height;
+            shapeEntity.X = shapeDto.X;
+            shapeEntity.Y = shapeDto.Y;
+            shapeEntity.Rotation = shapeDto.Rotation;
+            shapeEntity.Padding = shapeDto.Padding;
+            shapeEntity.Opacity = shapeDto.Opacity;
+            shapeEntity.Colour = shapeDto.Colour;
+
+
+            _sectorCommand.Update(sector);
+
+            await _sectorCommand.SaveChangesAsync(cancellationToken);
 
             return new GenericResponse { Success = true, Message = "Sector actualizado correctamente." };
         }

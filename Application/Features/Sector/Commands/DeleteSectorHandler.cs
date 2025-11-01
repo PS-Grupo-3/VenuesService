@@ -1,21 +1,28 @@
-﻿using Application.Interfaces;
-using Application.Interfaces.Command;
-using Application.Interfaces.Query;
-using Application.Models.Responses;
-using MediatR;
-using System.Threading;
-using System.Threading.Tasks;
-
-namespace Application.Features.Sector.Commands
+﻿
+namespace Application.Features.Sector.Handlers
 {
+    using Application.Interfaces.Command;
+    using Application.Interfaces.Query;
+    using Application.Features.Sector.Commands;
+    using Application.Models.Responses;
+    using MediatR;
+    using System.Threading;
+    using System.Threading.Tasks;
+
     public class DeleteSectorHandler : IRequestHandler<DeleteSectorCommand, GenericResponse>
     {
+ 
         private readonly ISectorCommand _sectorCommand;
+        private readonly IShapeCommand _shapeCommand;
         private readonly ISectorQuery _sectorQuery;
 
-        public DeleteSectorHandler(ISectorCommand sectorCommand, ISectorQuery sectorQuery)
+        public DeleteSectorHandler(
+            ISectorCommand sectorCommand,
+            IShapeCommand shapeCommand,
+            ISectorQuery sectorQuery)
         {
             _sectorCommand = sectorCommand;
+            _shapeCommand = shapeCommand;
             _sectorQuery = sectorQuery;
         }
 
@@ -30,9 +37,12 @@ namespace Application.Features.Sector.Commands
                 return new GenericResponse { Success = false, Message = "Sector no encontrado." };
             }
 
-            await _sectorCommand.DeleteAsync(sector, cancellationToken);
+            _shapeCommand.Delete(sector.Shape);
 
-            // 4. Devuelve la respuesta
+            _sectorCommand.Delete(sector);
+
+            await _sectorCommand.SaveChangesAsync(cancellationToken);
+
             return new GenericResponse { Success = true, Message = "Sector eliminado correctamente." };
         }
     }

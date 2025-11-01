@@ -12,5 +12,12 @@ namespace Application.Models.Requests
 
         [Range(1, int.MaxValue)]
         public int ColumnNumber { get; set; }
+
+
+        [Range(0, int.MaxValue)]
+        public int PosX { get; set; } 
+
+        [Range(0, int.MaxValue)]
+        public int PosY { get; set; } 
     }
 }

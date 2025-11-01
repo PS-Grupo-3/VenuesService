@@ -5,6 +5,7 @@ using MediatR;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Linq;
+using System.Collections.Generic; 
 
 namespace Application.Features.Seat.Handlers
 {
@@ -21,11 +22,14 @@ namespace Application.Features.Seat.Handlers
         {
             var seats = await _seatQuery.GetSeatsBySectorIdAsync(request.SectorId, cancellationToken);
 
+      
             return seats.Select(s => new SeatResponse
             {
                 SeatId = s.SeatId,
                 RowNumber = s.RowNumber,
-                ColumnNumber = s.ColumnNumber
+                ColumnNumber = s.ColumnNumber,
+                PosX = s.PosX,
+                PosY = s.PosY  
             }).ToList();
         }
     }

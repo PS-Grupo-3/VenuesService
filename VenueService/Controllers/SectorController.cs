@@ -1,4 +1,6 @@
-﻿using Application.Features.Sector.Commands;
+﻿using Application.Features.Seat.Commands;
+using Application.Features.Seat.Queries;
+using Application.Features.Sector.Commands;
 using Application.Features.Sector.Queries;
 using Application.Models.Requests;
 using MediatR;
@@ -145,6 +147,33 @@ namespace VenueService.Controllers
                     Detail = $"No se encontró el sector con Id {id} para eliminar."
                 });
 
+            return Ok(result);
+        }
+
+        [HttpPut("{sectorId:guid}/shape")]
+        public async Task<IActionResult> UpdateSectorShape(Guid sectorId, [FromBody] ShapeRequestData request)
+        {
+            var command = new UpdateSectorShapeCommand(sectorId, request);
+            var result = await _mediator.Send(command);
+
+            if (!result.Success)
+                return NotFound(result);
+
+            return Ok(result);
+        }
+
+        [HttpPost("{sectorId:guid}/seats/bulk")]
+        public async Task<IActionResult> BulkCreateSeats(Guid sectorId, [FromBody] BulkCreateSeatsRequest request)
+        {
+            var command = new BulkCreateSeatsCommand(sectorId, request);
+            await _mediator.Send(command);
+            return StatusCode(201, "Asientos creados correctamente."); 
+        }
+
+        [HttpGet("{sectorId:guid}/seats")]
+        public async Task<IActionResult> GetSeatsForSector(Guid sectorId, CancellationToken ct)
+        {
+            var result = await _mediator.Send(new GetSeatsBySectorIdQuery(sectorId), ct);
             return Ok(result);
         }
     }

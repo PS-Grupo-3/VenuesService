@@ -20,6 +20,10 @@ namespace Infrastructure.Persistence.Configurations
                 .WithMany(venue => venue.Sectors)
                 .HasForeignKey(sector => sector.Venue)
                 .OnDelete(DeleteBehavior.Restrict);
+
+            builder.HasOne(sector => sector.Shape)
+       .WithOne(shape => shape.Sector)
+       .HasForeignKey<Shape>(shape => shape.SectorId);
         }
     }
 }

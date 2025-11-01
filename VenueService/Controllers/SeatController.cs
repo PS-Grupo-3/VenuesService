@@ -20,20 +20,7 @@ namespace VenueService.Controllers
             _mediator = mediator;
         }
 
-        // --------------------------------------------------------------------
-        // GET api/v1/seat/{sectorId}/seats
-        // --------------------------------------------------------------------
-        [HttpGet("{sectorId:guid}/seats")]
-        [SwaggerOperation(
-            Summary = "Listar asientos por sector",
-            Description = "Devuelve todos los asientos pertenecientes a un sector específico."
-        )]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        public async Task<IActionResult> GetSeatsForSector(Guid sectorId, CancellationToken ct)
-        {
-            var result = await _mediator.Send(new GetSeatsBySectorIdQuery(sectorId), ct);
-            return Ok(result);
-        }
+   
 
         // --------------------------------------------------------------------
         // GET api/v1/seat/{id}

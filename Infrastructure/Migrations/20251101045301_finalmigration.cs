@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Infrastructure.Migrations
 {
     /// <inheritdoc />
-    public partial class init : Migration
+    public partial class finalmigration : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -91,6 +91,34 @@ namespace Infrastructure.Migrations
                         onDelete: ReferentialAction.Restrict);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Shape",
+                columns: table => new
+                {
+                    ShapeId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Type = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    Width = table.Column<int>(type: "int", nullable: false),
+                    Height = table.Column<int>(type: "int", nullable: false),
+                    X = table.Column<int>(type: "int", nullable: false),
+                    Y = table.Column<int>(type: "int", nullable: false),
+                    Rotation = table.Column<int>(type: "int", nullable: false),
+                    Padding = table.Column<int>(type: "int", nullable: false),
+                    Opacity = table.Column<int>(type: "int", nullable: false),
+                    Colour = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: false, defaultValue: "#FFFFFF"),
+                    SectorId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Shape", x => x.ShapeId);
+                    table.ForeignKey(
+                        name: "FK_Shape_Sector_SectorId",
+                        column: x => x.SectorId,
+                        principalTable: "Sector",
+                        principalColumn: "SectorId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.InsertData(
                 table: "VenueType",
                 columns: new[] { "VenueTypeId", "Name" },
@@ -112,6 +140,12 @@ namespace Infrastructure.Migrations
                 column: "Venue");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Shape_SectorId",
+                table: "Shape",
+                column: "SectorId",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Venue_Name",
                 table: "Venue",
                 column: "Name",
@@ -128,6 +162,9 @@ namespace Infrastructure.Migrations
         {
             migrationBuilder.DropTable(
                 name: "Seat");
+
+            migrationBuilder.DropTable(
+                name: "Shape");
 
             migrationBuilder.DropTable(
                 name: "Sector");

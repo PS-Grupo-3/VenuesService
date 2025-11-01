@@ -1,8 +1,5 @@
 ﻿using Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Application.Interfaces.Command
@@ -11,9 +8,10 @@ namespace Application.Interfaces.Command
     {
         Task InsertAsync(Sector sector, CancellationToken cancellationToken = default);
 
-        Task DeleteAsync(Sector sector, CancellationToken cancellationToken = default);
+        void Delete(Sector sector);
 
-        Task UpdateAsync(Sector sector, CancellationToken cancellationToken = default);
+        void Update(Sector sector);
 
+        Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
     }
 }

@@ -22,7 +22,8 @@ namespace Infrastructure.Queries
         public async Task<Sector?> GetByIdAsync(Guid id, CancellationToken cancellationToken = default)
         {
             return await _context.Sectors
-                .Include(s => s.Seats)
+                .Include(s => s.Seats)           
+                .Include(s => s.Shape)           
                 .AsNoTracking()
                 .FirstOrDefaultAsync(s => s.SectorId == id, cancellationToken);
         }
@@ -30,6 +31,7 @@ namespace Infrastructure.Queries
         public async Task<IReadOnlyList<Sector>> GetSectorsByVenueIdAsync(Guid venueId, CancellationToken cancellationToken = default)
         {
             return await _context.Sectors
+                .Include(s => s.Shape)
                 .Where(s => s.Venue == venueId)
                 .AsNoTracking()
                 .ToListAsync(cancellationToken);

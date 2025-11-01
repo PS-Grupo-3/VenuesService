@@ -15,6 +15,8 @@ namespace Infrastructure.Persistence
         public DbSet<Sector> Sectors { get; set; }
         public DbSet<VenueType> VenueTypes { get; set; }
 
+        public DbSet<Shape> Shapes { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(AppDbContext).Assembly);

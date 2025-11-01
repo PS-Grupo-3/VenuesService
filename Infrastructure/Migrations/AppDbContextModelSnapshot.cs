@@ -76,6 +76,58 @@ namespace Infrastructure.Migrations
                     b.ToTable("Sector", (string)null);
                 });
 
+            modelBuilder.Entity("Domain.Entities.Shape", b =>
+                {
+                    b.Property<int>("ShapeId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ShapeId"));
+
+                    b.Property<string>("Colour")
+                        .IsRequired()
+                        .ValueGeneratedOnAdd()
+                        .HasMaxLength(10)
+                        .HasColumnType("nvarchar(10)")
+                        .HasDefaultValue("#FFFFFF");
+
+                    b.Property<int>("Height")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Opacity")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Padding")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Rotation")
+                        .HasColumnType("int");
+
+                    b.Property<Guid>("SectorId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<int>("Width")
+                        .HasColumnType("int");
+
+                    b.Property<int>("X")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Y")
+                        .HasColumnType("int");
+
+                    b.HasKey("ShapeId");
+
+                    b.HasIndex("SectorId")
+                        .IsUnique();
+
+                    b.ToTable("Shape", (string)null);
+                });
+
             modelBuilder.Entity("Domain.Entities.Venue", b =>
                 {
                     b.Property<Guid>("VenueId")
@@ -169,6 +221,17 @@ namespace Infrastructure.Migrations
                     b.Navigation("VenueNavigation");
                 });
 
+            modelBuilder.Entity("Domain.Entities.Shape", b =>
+                {
+                    b.HasOne("Domain.Entities.Sector", "Sector")
+                        .WithOne("Shape")
+                        .HasForeignKey("Domain.Entities.Shape", "SectorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Sector");
+                });
+
             modelBuilder.Entity("Domain.Entities.Venue", b =>
                 {
                     b.HasOne("Domain.Entities.VenueType", "VenueTypeNavigation")
@@ -183,6 +246,9 @@ namespace Infrastructure.Migrations
             modelBuilder.Entity("Domain.Entities.Sector", b =>
                 {
                     b.Navigation("Seats");
+
+                    b.Navigation("Shape")
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Domain.Entities.Venue", b =>

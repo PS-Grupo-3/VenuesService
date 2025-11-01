@@ -1,14 +1,16 @@
-﻿using Application.Interfaces.Command;
-using Application.Interfaces.Query;
-using Application.Features.Seat.Commands;
-using Application.Models.Responses;
-using MediatR;
-using System.Threading;
-using System.Threading.Tasks;
-
+﻿
 namespace Application.Features.Seat.Handlers
 {
-    public class UpdateSeatHandler: IRequestHandler<UpdateSeatCommand, GenericResponse>
+    using Application.Interfaces.Command;
+    using Application.Interfaces.Query;
+    using Application.Features.Seat.Commands;
+    using Application.Models.Responses;
+    using MediatR;
+    using System.Threading;
+    using System.Threading.Tasks;
+    using System.Collections.Generic;
+
+    public class UpdateSeatHandler : IRequestHandler<UpdateSeatCommand, GenericResponse>
     {
         private readonly ISeatCommand _seatCommand;
         private readonly ISeatQuery _seatQuery;
@@ -27,8 +29,11 @@ namespace Application.Features.Seat.Handlers
             {
                 return new GenericResponse { Success = false, Message = "Asiento no encontrado." };
             }
+
             seat.RowNumber = command.Request.RowNumber;
             seat.ColumnNumber = command.Request.ColumnNumber;
+            seat.PosX = command.Request.PosX; 
+            seat.PosY = command.Request.PosY; 
 
             await _seatCommand.UpdateAsync(seat, cancellationToken);
 

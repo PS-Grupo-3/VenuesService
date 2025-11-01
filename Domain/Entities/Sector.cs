@@ -20,8 +20,9 @@ namespace Domain.Entities
         public Guid Venue { get; set; }
         public Venue VenueNavigation { get; set; }
 
+        public Shape Shape { get; set; } = null!;
         public ICollection<Seat> Seats { get; set; }
 
-       
+
     }
 }
