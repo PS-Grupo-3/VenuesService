@@ -12,5 +12,9 @@ namespace Application.Models.Responses
         public Guid VenueId { get; set; }
         public ShapeResponse Shape { get; set; } = null!;
         public List<SeatResponse> Seats { get; set; } = new();
+        public int SectorWidth { get; set; }
+        public int SectorHeight { get; set; }
+        public int? RowNumber { get; set; }
+        public int? ColumnNumber { get; set; }
     }
 }

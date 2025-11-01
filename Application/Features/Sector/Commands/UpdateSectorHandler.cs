@@ -31,6 +31,8 @@ namespace Application.Features.Sector.Handlers
 
             sector.Name = command.Request.Name;
             sector.IsControlled = command.Request.IsControlled;
+            sector.Width = command.Request.Width;
+            sector.Height = command.Request.Height;
 
             if (sector.IsControlled)
             {

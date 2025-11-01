@@ -48,6 +48,12 @@ namespace Application.Features.Sector.Handlers
                 Venue = command.VenueId, 
                 SeatCount = command.Request.IsControlled ? command.Request.SeatCount : null,
                 Capacity = !command.Request.IsControlled ? command.Request.Capacity : null,
+                RowNumber = !command.Request.IsControlled ? command.Request.RowNumber : null,
+                ColumnNumber = !command.Request.IsControlled ? command.Request.ColumnNumber : null,
+                PosX = command.Request.PosX,
+                PosY = command.Request.PosY,
+                Width = command.Request.Width,
+                Height = command.Request.Height,
                 Shape = shape 
             };
 
@@ -63,6 +69,10 @@ namespace Application.Features.Sector.Handlers
                 IsControlled = sector.IsControlled,
                 SeatCount = sector.SeatCount,
                 Capacity = sector.Capacity,
+                RowNumber = sector.RowNumber,
+                ColumnNumber = sector.ColumnNumber,
+                Width = sector.Width,
+                Height = sector.Height,
                 Shape = new ShapeResponse 
                 {
                     ShapeId = shape.ShapeId,
