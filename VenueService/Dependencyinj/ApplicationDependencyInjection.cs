@@ -1,5 +1,10 @@
-﻿using MediatR;
+﻿using Application.Factories;
+using MediatR;
 using Application.Features.Seat.Handlers;
+using Application.Features.SeatStrategy;
+using Application.Interfaces.Factories;
+using Application.Interfaces.Strategies;
+using Application.Strategies;
 
 namespace VenueService.Dependencyinj
 {
@@ -7,10 +12,17 @@ namespace VenueService.Dependencyinj
     {
         public static IServiceCollection AddApplication(this IServiceCollection services)
         {
-            // Registra todos los handlers del ensamblado donde está UpdateSeatHandler
-            services.AddMediatR(typeof(UpdateSeatHandler).Assembly);
+            services.AddMediatR(typeof(GenerateSeatsForSectorCommand).Assembly);
+
+            services.AddScoped<RectangleSeatGenerationStrategy>();
+            services.AddScoped<CircleSeatGenerationStrategy>();
+            services.AddScoped<SemiCircleSeatGenerationStrategy>();
+            services.AddScoped<ArcSeatGenerationStrategy>();
+
+            services.AddScoped<ISeatGenerationStrategyFactory, SeatGenerationStrategyFactory>();
 
             return services;
         }
+
     }
 }

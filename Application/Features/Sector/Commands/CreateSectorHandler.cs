@@ -21,9 +21,16 @@ namespace Application.Features.Sector.Handlers
             _sectorCommand = sectorCommand;
             _shapeCommand = shapeCommand;
         }
+        
+        private static readonly HashSet<string> ValidShapes = new()
+        {
+            "rectangle", "circle", "semicircle", "arc"
+        };
 
         public async Task<SectorResponse> Handle(CreateSectorCommand command, CancellationToken cancellationToken)
         {
+            if (!ValidShapes.Contains(command.Request.Shape.Type.ToLower()))
+                throw new ArgumentException($"Shape '{command.Request.Shape.Type}' no permitido. Los válidos son: {string.Join(", ", ValidShapes)}");
 
             var shape = new ShapeEntity
             {
@@ -47,9 +54,9 @@ namespace Application.Features.Sector.Handlers
                 IsControlled = command.Request.IsControlled,
                 Venue = command.VenueId, 
                 SeatCount = command.Request.IsControlled ? command.Request.SeatCount : null,
-                Capacity = !command.Request.IsControlled ? command.Request.Capacity : null,
-                RowNumber = !command.Request.IsControlled ? command.Request.RowNumber : null,
-                ColumnNumber = !command.Request.IsControlled ? command.Request.ColumnNumber : null,
+                Capacity = command.Request.IsControlled ? command.Request.Capacity : null,
+                RowNumber = command.Request.IsControlled ? command.Request.RowNumber : null,
+                ColumnNumber = command.Request.IsControlled ? command.Request.ColumnNumber : null,
                 PosX = command.Request.PosX,
                 PosY = command.Request.PosY,
                 Width = command.Request.Width,

@@ -1,12 +1,8 @@
 ﻿using Infrastructure.Persistence;
-using MediatR;
-using Microsoft.AspNetCore.Diagnostics;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 using VenueService.Dependencyinj;
 using VenueService.Infraestructure.GlobalExceptionHandler;  
-using Application;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -27,9 +23,6 @@ builder.Services.AddSwaggerGen(c =>
 
 builder.Services.AddProblemDetails(); 
 builder.Services.AddExceptionHandler<GlobalExceptionHandler>(); 
-
-
-builder.Services.AddMediatR(typeof(AssemblyMarker).Assembly);
 
 
 builder.Services.AddApplication();

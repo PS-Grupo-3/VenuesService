@@ -11,6 +11,6 @@ namespace Domain.Entities
         public string Name { get; set; }
 
         // Navegación a Venue
-        public ICollection<Venue> Venues { get; set; }
+        public ICollection<Venue> Venues { get; set; } 
     }
 }
