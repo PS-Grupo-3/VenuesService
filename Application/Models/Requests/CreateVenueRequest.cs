@@ -15,5 +15,6 @@ namespace Application.Models.Requests
         public string? Address { get; set; }
 
         public string? MapUrl { get; set; }
+        public string? BackgroundImageUrl { get; set; }
     }
 }

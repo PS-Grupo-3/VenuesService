@@ -9,7 +9,8 @@ public class CircleSeatGenerationStrategy : ISeatGenerationStrategy
     {
         return new List<Seat>
         {
-            new Seat { RowNumber = 1, ColumnNumber = 1, PosX = 5, PosY = 5, SectorId = sector.SectorId }
+            new Seat { RowNumber = 1, ColumnNumber = 1, PosX = 5, PosY = 5, SectorId = sector.SectorId },
+            new Seat { RowNumber = 1, ColumnNumber = 2, PosX = 10, PosY = 5, SectorId = sector.SectorId }
         };
     }
 }

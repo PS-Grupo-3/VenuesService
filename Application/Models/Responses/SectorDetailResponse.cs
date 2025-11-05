@@ -10,6 +10,8 @@ namespace Application.Models.Responses
         public int? SeatCount { get; set; }
         public int? Capacity { get; set; }
         public Guid VenueId { get; set; }
+        public int? PosX { get; set; }
+        public int? PosY { get; set; }
         public ShapeResponse Shape { get; set; } = null!;
         public List<SeatResponse> Seats { get; set; } = new();
         public int SectorWidth { get; set; }

@@ -17,6 +17,8 @@ namespace Domain.Entities
 
         public string MapUrl { get; set; }
 
+        public string BackgroundImageUrl { get; set; }
+
         // FK a VenueType
         public int VenueType { get; set; }
 

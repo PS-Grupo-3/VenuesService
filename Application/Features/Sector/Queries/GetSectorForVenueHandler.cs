@@ -31,6 +31,8 @@ namespace Application.Features.Sector.Handlers
                 Capacity = s.Capacity,
                 IsControlled = s.IsControlled,
                 SeatCount = s.SeatCount,
+                PosX = s.PosX,
+                PosY = s.PosY,
 
                 Shape = new ShapeResponse
                 {

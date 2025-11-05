@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20251102202316_patrones")]
-    partial class patrones
+    [Migration("20251105021233_front")]
+    partial class front
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -78,10 +78,10 @@ namespace Infrastructure.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<int>("PosX")
+                    b.Property<int?>("PosX")
                         .HasColumnType("int");
 
-                    b.Property<int>("PosY")
+                    b.Property<int?>("PosY")
                         .HasColumnType("int");
 
                     b.Property<int?>("RowNumber")
@@ -165,6 +165,10 @@ namespace Infrastructure.Migrations
                         .IsRequired()
                         .HasMaxLength(150)
                         .HasColumnType("nvarchar(150)");
+
+                    b.Property<string>("BackgroundImageUrl")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("MapUrl")
                         .IsRequired()

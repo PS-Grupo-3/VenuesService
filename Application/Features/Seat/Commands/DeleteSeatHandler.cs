@@ -8,7 +8,6 @@ namespace Application.Features.Seat.Handlers
     using MediatR;
     using System.Threading;
     using System.Threading.Tasks;
-    using System.Collections.Generic; 
 
     public class DeleteSeatHandler : IRequestHandler<DeleteSeatCommand, GenericResponse>
     {

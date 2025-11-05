@@ -32,6 +32,7 @@ namespace Application.Features.Venue.Commands
             venue.VenueTypeNavigation.VenueTypeId = command.Request.VenueTypeId;
             venue.Address = command.Request.Address;
             venue.MapUrl = command.Request.MapUrl;
+            venue.BackgroundImageUrl = command.Request.BackgroundImageUrl;
             await _venueCommand.UpdateAsync(venue, cancellationToken);
 
             return new GenericResponse { Success = true, Message = "Venue actualizado correctamente." };

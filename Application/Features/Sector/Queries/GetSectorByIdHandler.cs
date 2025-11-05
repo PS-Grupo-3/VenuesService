@@ -35,7 +35,9 @@
                 IsControlled = sector.IsControlled,
                 SeatCount = sector.SeatCount,
                 Capacity = sector.Capacity,
-                VenueId = sector.Venue, 
+                VenueId = sector.Venue,
+                PosX = sector.PosX,
+                PosY = sector.PosY,
 
                 Shape = new ShapeResponse
                 {

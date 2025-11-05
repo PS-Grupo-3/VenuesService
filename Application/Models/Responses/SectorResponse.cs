@@ -9,6 +9,8 @@
         public int? Capacity { get; set; }
         public int? RowNumber { get; set; }
         public int? ColumnNumber { get; set; }
+        public int? PosX { get; set; }
+        public int? PosY { get; set; }
         public int Width { get; set; }
         public int Height { get; set; }
         public ShapeResponse Shape { get; set; } = null!;

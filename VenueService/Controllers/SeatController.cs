@@ -2,7 +2,6 @@
 using Application.Features.Seat.Queries;
 using Application.Models.Requests;
 using MediatR;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
 
@@ -19,12 +18,7 @@ namespace VenueService.Controllers
         {
             _mediator = mediator;
         }
-
-   
-
-        // --------------------------------------------------------------------
-        // GET api/v1/seat/{id}
-        // --------------------------------------------------------------------
+        
         [HttpGet("{id:long}")]
         [SwaggerOperation(
             Summary = "Obtener asiento por Id",
@@ -45,10 +39,7 @@ namespace VenueService.Controllers
 
             return Ok(result);
         }
-
-        // --------------------------------------------------------------------
-        // POST api/v1/seat
-        // --------------------------------------------------------------------
+        
         [HttpPost]
         [SwaggerOperation(
             Summary = "Crear nuevo asiento",
@@ -69,10 +60,7 @@ namespace VenueService.Controllers
 
             return CreatedAtAction(nameof(GetById), new { id = result.SeatId }, result);
         }
-
-        // --------------------------------------------------------------------
-        // PUT api/v1/seat/{id}
-        // --------------------------------------------------------------------
+        
         [HttpPut("{id:long}")]
         [SwaggerOperation(
             Summary = "Actualizar asiento por Id",
@@ -101,10 +89,7 @@ namespace VenueService.Controllers
 
             return Ok(result);
         }
-
-        // --------------------------------------------------------------------
-        // DELETE api/v1/seat/{id}
-        // --------------------------------------------------------------------
+        
         [HttpDelete("{id:long}")]
         [SwaggerOperation(
             Summary = "Eliminar asiento por Id",

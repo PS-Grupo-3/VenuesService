@@ -1,6 +1,5 @@
 ﻿using Application.Features.VenueType.Queries;
 using MediatR;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
 
@@ -18,9 +17,7 @@ namespace VenueService.Controllers
             _mediator = mediator;
         }
 
-        // --------------------------------------------------------------------
-        // GET /api/v1/venuetype
-        // --------------------------------------------------------------------
+
         [HttpGet]
         [SwaggerOperation(
             Summary = "Listar tipos de venue",
@@ -32,10 +29,7 @@ namespace VenueService.Controllers
             var result = await _mediator.Send(new GetAllVenueTypesQuery(), ct);
             return Ok(result);
         }
-
-        // --------------------------------------------------------------------
-        // GET /api/v1/venuetype/{id}
-        // --------------------------------------------------------------------
+        
         [HttpGet("{id:int}")]
         [SwaggerOperation(
             Summary = "Obtener tipo de venue por Id",

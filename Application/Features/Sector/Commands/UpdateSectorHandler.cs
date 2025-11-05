@@ -45,7 +45,7 @@ namespace Application.Features.Sector.Handlers
                 sector.SeatCount = null;
             }
 
-            var shapeEntity = sector.Shape; 
+            var shapeEntity = sector.Shape;
             var shapeDto = command.Request.Shape;
 
             shapeEntity.Type = shapeDto.Type;
@@ -58,6 +58,9 @@ namespace Application.Features.Sector.Handlers
             shapeEntity.Opacity = shapeDto.Opacity;
             shapeEntity.Colour = shapeDto.Colour;
 
+            // Update sector position based on shape position
+            sector.PosX = shapeDto.X;
+            sector.PosY = shapeDto.Y;
 
             _sectorCommand.Update(sector);
 

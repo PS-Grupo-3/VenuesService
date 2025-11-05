@@ -1,12 +1,7 @@
 ﻿using Application.Interfaces.Command;
 using Application.Interfaces.Query;
 using Application.Features.Seat.Commands;
-using Domain.Entities;
 using MediatR;
-using System.Threading;
-using System.Threading.Tasks;
-using System.Collections.Generic;
-using System;
 
 namespace Application.Features.Seat.Handlers
 {

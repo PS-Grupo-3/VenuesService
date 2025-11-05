@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Infrastructure.Migrations
 {
     /// <inheritdoc />
-    public partial class finalmigration : Migration
+    public partial class front : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -35,6 +35,7 @@ namespace Infrastructure.Migrations
                     TotalCapacity = table.Column<long>(type: "bigint", nullable: false),
                     Address = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: false),
                     MapUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    BackgroundImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     VenueType = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -57,6 +58,12 @@ namespace Infrastructure.Migrations
                     IsControlled = table.Column<bool>(type: "bit", nullable: false),
                     SeatCount = table.Column<int>(type: "int", nullable: true),
                     Capacity = table.Column<int>(type: "int", nullable: true),
+                    RowNumber = table.Column<int>(type: "int", nullable: true),
+                    ColumnNumber = table.Column<int>(type: "int", nullable: true),
+                    PosX = table.Column<int>(type: "int", nullable: true),
+                    PosY = table.Column<int>(type: "int", nullable: true),
+                    Width = table.Column<int>(type: "int", nullable: false),
+                    Height = table.Column<int>(type: "int", nullable: false),
                     Venue = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
@@ -78,6 +85,8 @@ namespace Infrastructure.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     RowNumber = table.Column<int>(type: "int", nullable: false),
                     ColumnNumber = table.Column<int>(type: "int", nullable: false),
+                    PosX = table.Column<int>(type: "int", nullable: false),
+                    PosY = table.Column<int>(type: "int", nullable: false),
                     SectorId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>

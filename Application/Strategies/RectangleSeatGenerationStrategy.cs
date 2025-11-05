@@ -15,8 +15,8 @@ public class RectangleSeatGenerationStrategy : ISeatGenerationStrategy
         int rows = sector.RowNumber.Value;
         int cols = sector.ColumnNumber.Value;
 
-        int baseX = sector.PosX;
-        int baseY = sector.PosY;
+        int baseX = sector.PosX.Value;
+        int baseY = sector.PosY.Value;
         int spacingX = 5;
         int spacingY = 5;
         int padding = sector.Shape.Padding;

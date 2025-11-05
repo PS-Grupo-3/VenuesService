@@ -6,7 +6,6 @@ namespace Application.Features.Seat.Handlers
     using Application.Models.Responses;
     using Application.Features.Seat.Commands;
     using MediatR;
-    using Domain.Entities;
     using System.Threading;
     using System.Threading.Tasks;
     using System.Collections.Generic; 

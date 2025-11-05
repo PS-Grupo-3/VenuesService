@@ -2,10 +2,6 @@
 using Application.Features.Seat.Queries;
 using Application.Models.Responses;
 using MediatR;
-using System.Threading;
-using System.Threading.Tasks;
-using System.Linq;
-using System.Collections.Generic; 
 
 namespace Application.Features.Seat.Handlers
 {

@@ -4,7 +4,6 @@ using Application.Features.Sector.Commands;
 using Application.Features.Sector.Queries;
 using Application.Models.Requests;
 using MediatR;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
 
@@ -21,10 +20,7 @@ namespace VenueService.Controllers
         {
             _mediator = mediator;
         }
-
-        // --------------------------------------------------------------------
-        // GET /api/v1/venues/{venueId}/sectors
-        // --------------------------------------------------------------------
+        
         [HttpGet("/api/v1/venues/{venueId:guid}/sectors")]
         [SwaggerOperation(
             Summary = "Listar sectores por venue",
@@ -39,9 +35,6 @@ namespace VenueService.Controllers
             return Ok(result);
         }
 
-        // --------------------------------------------------------------------
-        // GET /api/v1/sector/{id}
-        // --------------------------------------------------------------------
         [HttpGet("{id:guid}")]
         [SwaggerOperation(
             Summary = "Obtener sector por Id",
@@ -63,9 +56,6 @@ namespace VenueService.Controllers
             return Ok(result);
         }
 
-        // --------------------------------------------------------------------
-        // POST /api/v1/venues/{venueId}/sectors
-        // --------------------------------------------------------------------
         [HttpPost("/api/v1/venues/{venueId:guid}/sectors")]
         [SwaggerOperation(
             Summary = "Crear un nuevo sector",
@@ -92,9 +82,6 @@ namespace VenueService.Controllers
             );
         }
 
-        // --------------------------------------------------------------------
-        // PUT /api/v1/sector/{id}
-        // --------------------------------------------------------------------
         [HttpPut("{id:guid}")]
         [SwaggerOperation(
             Summary = "Actualizar sector por Id",
@@ -124,10 +111,7 @@ namespace VenueService.Controllers
 
             return Ok(result);
         }
-
-        // --------------------------------------------------------------------
-        // DELETE /api/v1/sector/{id}
-        // --------------------------------------------------------------------
+        
         [HttpDelete("{id:guid}")]
         [SwaggerOperation(
             Summary = "Eliminar sector por Id",

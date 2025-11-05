@@ -2,6 +2,6 @@
 using MediatR;
 
 namespace Application.Features.Seat.Queries
-{
-    public record GetSeatByIdQuery(long SeatId) : IRequest<SeatDetailResponse>;
+{ 
+    public record GetSeatByIdQuery(long SeatId) : IRequest<SeatDetailResponse>;
 }

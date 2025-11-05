@@ -1,5 +1,4 @@
-﻿// ...
-using Application.Features.Seat.Queries;
+﻿using Application.Features.Seat.Queries;
 using Application.Interfaces.Query;
 using Application.Models.Responses;
 using MediatR;

@@ -12,6 +12,7 @@ namespace Application.Models.Responses
         public string Name { get; set; }
         public string Address { get; set; }
         public long TotalCapacity { get; set; }
+        public string BackgroundImageUrl { get; set; }
         public VenueTypeResponse VenueType { get; set; }
     }
 }

@@ -38,6 +38,7 @@ namespace Application.Features.Venue.Commands
                 Name = request.Request.Name,
                 MapUrl = request.Request.MapUrl,
                 TotalCapacity = request.Request.TotalCapacity,
+                BackgroundImageUrl = request.Request.BackgroundImageUrl,
 
 
             };
@@ -50,11 +51,12 @@ namespace Application.Features.Venue.Commands
                 Name = venue.Name,
                 Address = venue.Address,
                 TotalCapacity = venue.TotalCapacity,
+                BackgroundImageUrl = venue.BackgroundImageUrl,
                 VenueType = new VenueTypeResponse
                 {
                     VenueTypeId = type.VenueTypeId,
                     Name = type.Name
-                    
+
                 }
             };
 

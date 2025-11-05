@@ -29,6 +29,7 @@ namespace Application.Features.Venue.Queries
                 TotalCapacity = venue.TotalCapacity,
                 Address = venue.Address,
                 MapUrl = venue.MapUrl,
+                BackgroundImageUrl = venue.BackgroundImageUrl,
                 VenueType = new VenueTypeResponse
                 {
                     VenueTypeId = venue.VenueTypeNavigation.VenueTypeId,

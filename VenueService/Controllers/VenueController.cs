@@ -8,7 +8,7 @@ using Swashbuckle.AspNetCore.Annotations;
 
 namespace VenueService.Controllers
 {
-    [Route("api/v1/[controller]")]
+    [Route("api/v1/venues")]
     [ApiController]
     [Produces("application/json")]
     public class VenueController : ControllerBase
@@ -20,9 +20,6 @@ namespace VenueService.Controllers
             _mediator = mediator;
         }
 
-        // --------------------------------------------------------------------
-        // GET /api/v1/venue?name=...&location=...&venueTypeId=...&sortByCapacity=...
-        // --------------------------------------------------------------------
         [HttpGet]
         [SwaggerOperation(
             Summary = "Listar venues",
@@ -44,9 +41,6 @@ namespace VenueService.Controllers
             return Ok(result);
         }
 
-        // --------------------------------------------------------------------
-        // GET /api/v1/venue/{id}
-        // --------------------------------------------------------------------
         [HttpGet("{id:guid}")]
         [SwaggerOperation(
             Summary = "Obtener venue por Id",
@@ -68,9 +62,6 @@ namespace VenueService.Controllers
             return Ok(result);
         }
 
-        // --------------------------------------------------------------------
-        // POST /api/v1/venue
-        // --------------------------------------------------------------------
         [HttpPost]
         [SwaggerOperation(
             Summary = "Crear un nuevo venue",
@@ -91,10 +82,7 @@ namespace VenueService.Controllers
 
             return CreatedAtAction(nameof(GetById), new { id = result.VenueId }, result);
         }
-
-        // --------------------------------------------------------------------
-        // PUT /api/v1/venue/{id}
-        // --------------------------------------------------------------------
+        
         [HttpPut("{id:guid}")]
         [SwaggerOperation(
             Summary = "Actualizar venue por Id",
@@ -124,10 +112,7 @@ namespace VenueService.Controllers
 
             return Ok(result);
         }
-
-        // --------------------------------------------------------------------
-        // DELETE /api/v1/venue/{id}
-        // --------------------------------------------------------------------
+        
         [HttpDelete("{id:guid}")]
         [SwaggerOperation(
             Summary = "Eliminar venue por Id",
