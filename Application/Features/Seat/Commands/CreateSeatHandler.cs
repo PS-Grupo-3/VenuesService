@@ -36,6 +36,10 @@ namespace Application.Features.Seat.Handlers
             {
                 throw new InvalidOperationException("No se pueden crear asientos individuales en un sector no controlado.");
             }
+            if (request.RowNumber < 0 || request.ColumnNumber < 0) 
+            {
+                throw new InvalidOperationException("Ingrese una posición valida.");
+            }
 
             var seat = new Domain.Entities.Seat
             {

@@ -7,17 +7,17 @@ namespace Application.Models.Requests
         [Required]
         public Guid SectorId { get; set; }
 
-        [Range(1, int.MaxValue)]
+        [Range(int.MinValue, int.MaxValue)]
         public int RowNumber { get; set; }
 
-        [Range(1, int.MaxValue)]
+        [Range(int.MinValue, int.MaxValue)]
         public int ColumnNumber { get; set; }
 
 
-        [Range(0, int.MaxValue)]
+        [Range(int.MinValue, int.MaxValue)]
         public int PosX { get; set; } 
 
-        [Range(0, int.MaxValue)]
+        [Range(int.MinValue, int.MaxValue)]
         public int PosY { get; set; } 
     }
 }
