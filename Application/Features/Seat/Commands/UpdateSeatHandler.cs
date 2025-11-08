@@ -29,6 +29,16 @@ namespace Application.Features.Seat.Handlers
                 return new GenericResponse { Success = false, Message = "Asiento no encontrado." };
             }
 
+            if (command.Request.RowNumber < 0)
+            {
+                throw new ArgumentException($"Ingrese una cantidad de filas válida.");
+            }
+            if (command.Request.ColumnNumber < 0)
+            {
+                throw new ArgumentException($"Ingrese una cantidad de columnas válida.");
+            }
+
+
             seat.RowNumber = command.Request.RowNumber;
             seat.ColumnNumber = command.Request.ColumnNumber;
             seat.PosX = command.Request.PosX; 

@@ -13,7 +13,10 @@ namespace Application.Features.Sector.Handlers
     {
         private readonly ISectorQuery _sectorQuery;
         private readonly ISectorCommand _sectorCommand;
-
+        private static readonly HashSet<string> ValidShapes = new()
+        {
+            "rectangle", "circle", "semicircle", "arc"
+        };
         public UpdateSectorShapeHandler(ISectorQuery sectorQuery, ISectorCommand sectorCommand)
         {
             _sectorQuery = sectorQuery;
@@ -29,7 +32,26 @@ namespace Application.Features.Sector.Handlers
                 return new GenericResponse { Success = false, Message = "Sector no encontrado." };
             }
 
-      
+            if (!ValidShapes.Contains(command.Request.Type.ToLower()))
+                throw new ArgumentException($"Shape '{command.Request.Type}' no permitido. Los válidos son: {string.Join(", ", ValidShapes)}");
+
+
+            if (command.Request.Width < 0 && command.Request.Height < 0)
+            {
+                throw new ArgumentException($"El ancho y alto deben ser positivos.");
+            }
+
+            if (command.Request.Width <= 0 || command.Request.Height <= 0)
+            {
+                throw new ArgumentException($"Ingrese medidas válidas.");
+            }
+            if (command.Request.Padding <= 0)
+            {
+                throw new ArgumentException($"Ingrese un padding válido.");
+            }
+
+
+
             var shape = sector.Shape; 
             shape.Type = command.Request.Type;
             shape.Width = command.Request.Width;

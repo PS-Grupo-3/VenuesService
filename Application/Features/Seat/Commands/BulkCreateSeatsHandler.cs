@@ -28,10 +28,12 @@ namespace Application.Features.Seat.Handlers
             {
                 throw new InvalidOperationException("No se pueden crear asientos en un sector no controlado.");
             }
+           
 
-      
+
             foreach (var seatDto in command.Request.Seats)
             {
+               
                 var seat = new Domain.Entities.Seat
                 {
                     SectorId = command.SectorId,

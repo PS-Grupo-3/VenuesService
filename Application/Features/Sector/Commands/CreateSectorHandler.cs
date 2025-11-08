@@ -32,6 +32,20 @@ namespace Application.Features.Sector.Handlers
             if (!ValidShapes.Contains(command.Request.Shape.Type.ToLower()))
                 throw new ArgumentException($"Shape '{command.Request.Shape.Type}' no permitido. Los válidos son: {string.Join(", ", ValidShapes)}");
 
+            if (command.Request.Shape.Width <= 0 && command.Request.Shape.Height <= 0)
+            {
+                throw new ArgumentException($"El ancho y alto tiene que ser positivos.");
+            }
+            if (command.Request.Shape.Width <= 0 || command.Request.Shape.Height <= 0) 
+            {
+                throw new ArgumentException($"Ingrese medidas válidas.");
+            }
+            if (command.Request.Shape.Padding <= 0) 
+            {
+                throw new ArgumentException($"Ingrese un padding válido.");
+            }
+
+
             var shape = new ShapeEntity
             {
                 Type = command.Request.Shape.Type,
@@ -47,6 +61,33 @@ namespace Application.Features.Sector.Handlers
 
 
             await _shapeCommand.InsertAsync(shape, cancellationToken);
+            
+            if (command.Request.Width < 0 && command.Request.Height < 0)
+            {
+                throw new ArgumentException($"El ancho y alto deben ser positivos.");
+            }
+
+            if (command.Request.Width <= 0 || command.Request.Height <= 0) 
+            {
+                throw new ArgumentException($"Ingrese medidas válidas.");
+            }
+            if (!command.Request.IsControlled && command.Request.Capacity <= 0) 
+            {
+                throw new ArgumentException($"Ingrese una capacidad válida.");
+            }
+            if (command.Request.IsControlled && command.Request.SeatCount <= 0)
+            {
+                throw new ArgumentException($"Ingrese una cantidad de asientos válida.");
+            }
+            if (command.Request.IsControlled && command.Request.RowNumber <= 0)
+            {
+                throw new ArgumentException($"Ingrese una cantidad de filas válida.");
+            }
+            if (command.Request.IsControlled && command.Request.ColumnNumber <= 0)
+            {
+                throw new ArgumentException($"Ingrese una cantidad de columnas válida.");
+            }
+
 
             var sector = new SectorEntity
             {
@@ -54,7 +95,7 @@ namespace Application.Features.Sector.Handlers
                 IsControlled = command.Request.IsControlled,
                 Venue = command.VenueId, 
                 SeatCount = command.Request.IsControlled ? command.Request.SeatCount : null,
-                Capacity = command.Request.IsControlled ? command.Request.Capacity : null,
+                Capacity =  command.Request.IsControlled ?  null : command.Request.Capacity,
                 RowNumber = command.Request.IsControlled ? command.Request.RowNumber : null,
                 ColumnNumber = command.Request.IsControlled ? command.Request.ColumnNumber : null,
                 PosX = command.Request.PosX,
@@ -78,6 +119,8 @@ namespace Application.Features.Sector.Handlers
                 Capacity = sector.Capacity,
                 RowNumber = sector.RowNumber,
                 ColumnNumber = sector.ColumnNumber,
+                PosX=sector.PosX,
+                PosY=sector.PosY,
                 Width = sector.Width,
                 Height = sector.Height,
                 Shape = new ShapeResponse 
