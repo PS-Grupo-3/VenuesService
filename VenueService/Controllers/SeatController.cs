@@ -17,8 +17,8 @@ namespace VenueService.Controllers
         public SeatController(IMediator mediator)
         {
             _mediator = mediator;
-        }
-        
+        }        
+
         [HttpGet("{id:long}")]
         [SwaggerOperation(
             Summary = "Obtener asiento por Id",
@@ -38,28 +38,7 @@ namespace VenueService.Controllers
                 });
 
             return Ok(result);
-        }
-        
-        [HttpPost]
-        [SwaggerOperation(
-            Summary = "Crear nuevo asiento",
-            Description = "Crea un nuevo asiento en el sistema y devuelve el recurso creado."
-        )]
-        [ProducesResponseType(StatusCodes.Status201Created)]
-        [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> Create([FromBody] CreateSeatRequest request, CancellationToken ct)
-        {
-            if (request is null)
-                return BadRequest(new ProblemDetails
-                {
-                    Title = "Body requerido",
-                    Detail = "Debe enviarse un cuerpo JSON con los datos del asiento a crear."
-                });
-
-            var result = await _mediator.Send(new CreateSeatCommand(request), ct);
-
-            return CreatedAtAction(nameof(GetById), new { id = result.SeatId }, result);
-        }
+        }    
         
         [HttpPut("{id:long}")]
         [SwaggerOperation(
