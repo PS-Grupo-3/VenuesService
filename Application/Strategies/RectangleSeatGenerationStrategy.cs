@@ -10,29 +10,36 @@ public class RectangleSeatGenerationStrategy : ISeatGenerationStrategy
         if (sector.RowNumber is null || sector.ColumnNumber is null)
             throw new InvalidOperationException("Rectángulo requiere RowNumber y ColumnNumber definidos.");
 
-        var seats = new List<Seat>();
-
         int rows = sector.RowNumber.Value;
         int cols = sector.ColumnNumber.Value;
 
-        int baseX = sector.PosX.Value;
-        int baseY = sector.PosY.Value;
+        int totalSeats = rows * cols;
+        var seats = new Seat[totalSeats];
+
+        int baseX = sector.PosX ?? 0;
+        int baseY = sector.PosY ?? 0;
         int spacingX = 5;
         int spacingY = 5;
         int padding = sector.Shape.Padding;
 
+        int index = 0;
+
         for (int row = 1; row <= rows; row++)
         {
+            int posY = baseY + ((row - 1) * spacingY) + padding;
+
             for (int col = 1; col <= cols; col++)
             {
-                seats.Add(new Seat
+                int posX = baseX + ((col - 1) * spacingX) + padding;
+
+                seats[index++] = new Seat
                 {
                     SectorId = sector.SectorId,
                     RowNumber = row,
                     ColumnNumber = col,
-                    PosX = baseX + ((col - 1) * spacingX) + padding,
-                    PosY = baseY + ((row - 1) * spacingY) + padding
-                });
+                    PosX = posX,
+                    PosY = posY
+                };
             }
         }
 
