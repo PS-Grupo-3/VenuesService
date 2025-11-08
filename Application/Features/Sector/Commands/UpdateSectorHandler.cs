@@ -33,6 +33,8 @@ namespace Application.Features.Sector.Handlers
             sector.IsControlled = command.Request.IsControlled;
             sector.Width = command.Request.Width;
             sector.Height = command.Request.Height;
+            sector.RowNumber = command.Request.RowNumber;
+            sector.ColumnNumber = command.Request.ColumnNumber;
 
             if (sector.IsControlled)
             {

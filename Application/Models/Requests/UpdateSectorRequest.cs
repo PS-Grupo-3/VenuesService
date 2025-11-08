@@ -23,6 +23,9 @@ namespace Application.Models.Requests
 
         [Range(1, int.MaxValue)]
         public int Height { get; set; }
+        
+        public int? RowNumber { get; set; }   
+        public int? ColumnNumber { get; set; }
 
         [Required]
         public ShapeRequestData Shape { get; set; } = null!;
