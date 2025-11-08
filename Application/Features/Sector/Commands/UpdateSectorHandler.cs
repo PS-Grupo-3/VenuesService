@@ -13,7 +13,11 @@ namespace Application.Features.Sector.Handlers
     {
         private readonly ISectorCommand _sectorCommand;
         private readonly ISectorQuery _sectorQuery;
-
+        
+        private static readonly HashSet<string> ValidShapes = new()
+        {
+            "rectangle", "circle", "semicircle", "arc"
+        };
         public UpdateSectorHandler(ISectorCommand sectorCommand, ISectorQuery sectorQuery)
         {
             _sectorCommand = sectorCommand;
@@ -34,6 +38,25 @@ namespace Application.Features.Sector.Handlers
             sector.Width = command.Request.Width;
             sector.Height = command.Request.Height;
 
+            if (command.Request.Width <= 0 && command.Request.Height <= 0)
+            {
+                throw new ArgumentException($"El ancho y alto deben ser positivos.");
+            }
+
+            if (command.Request.Width <= 0 || command.Request.Height <= 0)
+            {
+                throw new ArgumentException($"Ingrese medidas válidas.");
+            }
+
+            if (!sector.IsControlled && command.Request.Capacity <= 0)
+            {
+                throw new ArgumentException($"Ingrese una capacidad válida.");
+            }
+            if (sector.IsControlled && command.Request.SeatCount <= 0)
+            {
+                throw new ArgumentException($"Ingrese una cantidad de asientos válida.");
+            }
+
             if (sector.IsControlled)
             {
                 sector.SeatCount = command.Request.SeatCount;
@@ -45,8 +68,28 @@ namespace Application.Features.Sector.Handlers
                 sector.SeatCount = null;
             }
 
+
+            if (!ValidShapes.Contains(command.Request.Shape.Type.ToLower()))
+                throw new ArgumentException($"Shape '{command.Request.Shape.Type}' no permitido. Los válidos son: {string.Join(", ", ValidShapes)}");
+
+
             var shapeEntity = sector.Shape;
             var shapeDto = command.Request.Shape;
+
+            if (shapeDto.Width < 0 && shapeDto.Height < 0)
+            {
+                throw new ArgumentException($"El ancho y alto tiene que ser positivos.");
+            }
+            if (shapeDto.Width <= 0 || shapeDto.Height <= 0)
+            {
+                throw new ArgumentException($"Ingrese medidas válidas.");
+            }
+            if (shapeDto.Padding <= 0)
+            {
+                throw new ArgumentException($"Ingrese un padding válido.");
+            }
+
+
 
             shapeEntity.Type = shapeDto.Type;
             shapeEntity.Width = shapeDto.Width;

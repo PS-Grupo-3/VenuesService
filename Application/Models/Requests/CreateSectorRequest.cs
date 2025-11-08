@@ -11,24 +11,24 @@ namespace Application.Models.Requests
 
         public bool IsControlled { get; set; }
 
-        [Range(0, int.MaxValue)]
+        [Range(int.MinValue, int.MaxValue)]
         public int? SeatCount { get; set; }
 
-        [Range(0, int.MaxValue)]
+        [Range(int.MinValue, int.MaxValue)]
         public int? Capacity { get; set; }
         public int? RowNumber { get; set; }
-        [Range(0, int.MaxValue)]
+        [Range(int.MinValue, int.MaxValue)]
         public int? ColumnNumber { get; set; }
 
-        [Range(0, int.MaxValue)]
+        [Range(int.MinValue, int.MaxValue)]
         public int PosX { get; set; }
 
-        [Range(0, int.MaxValue)]
+        [Range(int.MinValue, int.MaxValue)]
         public int PosY { get; set; }
-        [Range(1, int.MaxValue)]
+        [Range(int.MinValue, int.MaxValue)]
         public int Width { get; set; }
 
-        [Range(1, int.MaxValue)]
+        [Range(int.MinValue, int.MaxValue)]
         public int Height { get; set; }
 
 

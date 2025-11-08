@@ -26,6 +26,10 @@ namespace Application.Features.Venue.Commands
             {
                 return new GenericResponse { Success = false, Message = "Venue no encontrado." };
             }
+            if (command.Request.TotalCapacity <= 0) 
+            {
+                throw new ArgumentException("Ingrese una capacidad válida");
+            }
 
             venue.Name = command.Request.Name;
             venue.TotalCapacity = command.Request.TotalCapacity;

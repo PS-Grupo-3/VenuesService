@@ -30,6 +30,15 @@ namespace Application.Features.Venue.Commands
             {
                 throw new KeyNotFoundException("No existe un tipo con ese ID");
             }
+
+            if (request.Request.TotalCapacity <= 0) 
+            {
+                throw new ArgumentException("Ingrese una capacidad válida");
+            }
+
+
+
+
             var venue = new Domain.Entities.Venue
             {
                 VenueId = Guid.NewGuid(),
