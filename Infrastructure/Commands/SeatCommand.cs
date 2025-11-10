@@ -30,7 +30,14 @@ namespace Infrastructure.Commands
         public async Task DeleteAsync(Seat seat, CancellationToken cancellationToken = default)
         {
             _context.Seats.Remove(seat);
-            await _context.SaveChangesAsync(cancellationToken); 
+            await _context.SaveChangesAsync(cancellationToken);
+        }
+        
+        public async Task DeleteBySectorIdAsync(Guid sectorId, CancellationToken cancellationToken = default)
+        {
+            var seats = _context.Seats.Where(s => s.SectorId == sectorId);
+            _context.Seats.RemoveRange(seats);
+            await _context.SaveChangesAsync(cancellationToken);
         }
     }
 }

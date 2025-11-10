@@ -15,15 +15,18 @@ namespace Application.Features.Sector.Handlers
         private readonly ISectorCommand _sectorCommand;
         private readonly IShapeCommand _shapeCommand;
         private readonly ISectorQuery _sectorQuery;
+        private readonly ISeatCommand _seatCommand;
 
         public DeleteSectorHandler(
             ISectorCommand sectorCommand,
             IShapeCommand shapeCommand,
-            ISectorQuery sectorQuery)
+            ISectorQuery sectorQuery,
+            ISeatCommand seatCommand)
         {
             _sectorCommand = sectorCommand;
             _shapeCommand = shapeCommand;
             _sectorQuery = sectorQuery;
+            _seatCommand = seatCommand;
         }
 
         public async Task<GenericResponse> Handle(DeleteSectorCommand command, CancellationToken cancellationToken)
@@ -36,6 +39,8 @@ namespace Application.Features.Sector.Handlers
             {
                 return new GenericResponse { Success = false, Message = "Sector no encontrado." };
             }
+
+             await _seatCommand.DeleteBySectorIdAsync(sectorId, cancellationToken);
 
             _shapeCommand.Delete(sector.Shape);
 

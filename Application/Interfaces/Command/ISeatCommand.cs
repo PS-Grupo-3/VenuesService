@@ -10,5 +10,6 @@ namespace Application.Interfaces.Command
         Task UpdateAsync(Seat seat, CancellationToken cancellationToken = default);
 
         Task DeleteAsync(Seat seat, CancellationToken cancellationToken = default);
+        Task DeleteBySectorIdAsync(Guid sectorId, CancellationToken cancellationToken = default);
     }
 }
