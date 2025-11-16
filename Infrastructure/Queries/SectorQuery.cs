@@ -4,6 +4,7 @@ using Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.IO.Compression;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,16 +25,15 @@ namespace Infrastructure.Queries
             return await _context.Sectors
                 .Include(s => s.Seats)           
                 .Include(s => s.Shape)           
-                .AsNoTracking()
                 .FirstOrDefaultAsync(s => s.SectorId == id, cancellationToken);
         }
 
-        public async Task<IReadOnlyList<Sector>> GetSectorsByVenueIdAsync(Guid venueId, CancellationToken cancellationToken = default)
+        public async Task<IReadOnlyList<Sector?>> GetSectorsByVenueIdAsync(Guid venueId, CancellationToken cancellationToken = default)
         {
             return await _context.Sectors
+                .Include(s => s.Seats)
                 .Include(s => s.Shape)
-                .Where(s => s.Venue == venueId)
-                .AsNoTracking()
+                .Where(s => s.Venue == venueId)                
                 .ToListAsync(cancellationToken);
         }
 

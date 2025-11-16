@@ -232,7 +232,7 @@ namespace Infrastructure.Migrations
                     b.HasOne("Domain.Entities.Sector", "SectorNavigation")
                         .WithMany("Seats")
                         .HasForeignKey("SectorId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("SectorNavigation");

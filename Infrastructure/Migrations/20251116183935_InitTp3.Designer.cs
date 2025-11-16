@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20251105182301_init")]
-    partial class init
+    [Migration("20251116183935_InitTp3")]
+    partial class InitTp3
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -235,7 +235,7 @@ namespace Infrastructure.Migrations
                     b.HasOne("Domain.Entities.Sector", "SectorNavigation")
                         .WithMany("Seats")
                         .HasForeignKey("SectorId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("SectorNavigation");

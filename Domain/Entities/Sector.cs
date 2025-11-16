@@ -8,7 +8,7 @@ namespace Domain.Entities
         public Guid SectorId { get; set; }
 
         [Required, MaxLength(50)]
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
         public bool IsControlled { get; set; }
 
@@ -24,11 +24,10 @@ namespace Domain.Entities
 
         // FK a Venue
         public Guid Venue { get; set; }
-        public Venue VenueNavigation { get; set; }
+        public Venue? VenueNavigation { get; set; }
 
         public Shape Shape { get; set; } = null!;
-        public ICollection<Seat> Seats { get; set; }
-
+        public ICollection<Seat> Seats { get; set; } = new List<Seat>();
 
     }
 }

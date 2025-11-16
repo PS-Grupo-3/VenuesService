@@ -28,6 +28,11 @@
                 throw new KeyNotFoundException("No se encontró un Sector con ese ID");
             }
 
+            if (sector.Name == null)
+            {
+                throw new KeyNotFoundException("No se encontró un Sector con ese Nombre.");
+            }
+
             return new SectorDetailResponse
             {
                 SectorId = sector.SectorId,
@@ -38,6 +43,10 @@
                 VenueId = sector.Venue,
                 PosX = sector.PosX,
                 PosY = sector.PosY,
+                SectorWidth = sector.Width,
+                SectorHeight = sector.Height,
+                RowNumber = sector.RowNumber,
+                ColumnNumber = sector.ColumnNumber,
 
                 Shape = new ShapeResponse
                 {
@@ -57,12 +66,11 @@
                 {
                     SeatId = seat.SeatId,
                     RowNumber = seat.RowNumber,
-                    ColumnNumber = seat.ColumnNumber
+                    ColumnNumber = seat.ColumnNumber,
+                    PosX = seat.PosX,
+                    PosY = seat.PosY
                 }).ToList(),
-                SectorWidth = sector.Width,
-                SectorHeight = sector.Height,
-                RowNumber = sector.RowNumber,
-                ColumnNumber = sector.ColumnNumber,
+
             };
         }
     }
