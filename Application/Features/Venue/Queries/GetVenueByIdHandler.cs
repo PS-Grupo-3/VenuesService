@@ -1,5 +1,6 @@
 ﻿using Application.Interfaces.Query;
 using Application.Models.Responses;
+using Domain.Entities;
 using MediatR;
 
 namespace Application.Features.Venue.Queries
@@ -20,7 +21,7 @@ namespace Application.Features.Venue.Queries
             if (venue == null)
             {
                 throw new KeyNotFoundException("No se encontró un Venue con ese ID");
-            }
+            }            
 
             return new VenueDetailResponse
             {
@@ -42,7 +43,26 @@ namespace Application.Features.Venue.Queries
                     Name = s.Name,
                     IsControlled = s.IsControlled,
                     SeatCount = s.SeatCount,
-                    Capacity = s.Capacity
+                    Capacity = s.Capacity,
+                    RowNumber = s.RowNumber,
+                    ColumnNumber = s.ColumnNumber,
+                    PosX = s.PosX,
+                    PosY = s.PosY, 
+                    Width = s.Width,
+                    Height = s.Height,
+                    Shape = new ShapeResponse
+                    {
+                        ShapeId = s.Shape.ShapeId,
+                        Type = s.Shape.Type,
+                        Width = s.Shape.Width,
+                        Height = s.Shape.Height,
+                        X = s.Shape.X,
+                        Y = s.Shape.Y,
+                        Rotation = s.Shape.Rotation,
+                        Padding = s.Shape.Padding,
+                        Opacity = s.Shape.Opacity,
+                        Colour = s.Shape.Colour
+                    }                                                                
                 }).ToList()
 
             };

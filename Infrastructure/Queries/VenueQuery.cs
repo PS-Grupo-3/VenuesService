@@ -25,6 +25,9 @@ namespace Infrastructure.Queries
             return await _context.Venues
                 .Include(v => v.VenueTypeNavigation)
                 .Include(v => v.Sectors)
+                    .ThenInclude(s => s.Shape)
+                .Include(v => v.Sectors)
+                    .ThenInclude(s => s.Seats)
                 .AsNoTracking()
                 .FirstOrDefaultAsync(v => v.VenueId == id, cancellationToken);
         }
