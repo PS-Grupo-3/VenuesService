@@ -7,39 +7,35 @@ public class RectangleSeatGenerationStrategy : ISeatGenerationStrategy
 {
     public IEnumerable<Seat> GenerateSeats(Sector sector)
     {
-        if (sector.RowNumber is null || sector.ColumnNumber is null)
-            throw new InvalidOperationException("Rectángulo requiere RowNumber y ColumnNumber definidos.");
+        var shape = sector.Shape;
 
-        int rows = sector.RowNumber.Value;
-        int cols = sector.ColumnNumber.Value;
+        if (shape.Rows is null || shape.Columns is null)
+            throw new InvalidOperationException("Rectangle requiere Rows y Columns definidos en Shape.");
 
-        int totalSeats = rows * cols;
-        var seats = new Seat[totalSeats];
+        int rows = shape.Rows.Value;
+        int cols = shape.Columns.Value;
 
-        int baseX = sector.PosX ?? 0;
-        int baseY = sector.PosY ?? 0;
         int spacingX = 5;
         int spacingY = 5;
-        int padding = sector.Shape.Padding;
 
-        int index = 0;
+        var seats = new List<Seat>();
 
         for (int row = 1; row <= rows; row++)
         {
-            int posY = baseY + ((row - 1) * spacingY) + padding;
+            int posY = (shape.Y + ((row - 1) * spacingY) + shape.Padding) ?? 0;
 
             for (int col = 1; col <= cols; col++)
             {
-                int posX = baseX + ((col - 1) * spacingX) + padding;
+                int posX = (shape.X + ((col - 1) * spacingX) + shape.Padding)  ?? 0;
 
-                seats[index++] = new Seat
+                seats.Add(new Seat
                 {
                     SectorId = sector.SectorId,
                     RowNumber = row,
                     ColumnNumber = col,
                     PosX = posX,
                     PosY = posY
-                };
+                });
             }
         }
 

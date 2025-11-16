@@ -41,24 +41,20 @@
                 SeatCount = sector.SeatCount,
                 Capacity = sector.Capacity,
                 VenueId = sector.Venue,
-                PosX = sector.PosX,
-                PosY = sector.PosY,
-                SectorWidth = sector.Width,
-                SectorHeight = sector.Height,
-                RowNumber = sector.RowNumber,
-                ColumnNumber = sector.ColumnNumber,
 
                 Shape = new ShapeResponse
                 {
                     ShapeId = sector.Shape.ShapeId,
                     Type = sector.Shape.Type,
-                    Width = sector.Shape.Width,
-                    Height = sector.Shape.Height,
-                    X = sector.Shape.X,
-                    Y = sector.Shape.Y,
-                    Rotation = sector.Shape.Rotation,
-                    Padding = sector.Shape.Padding,
-                    Opacity = sector.Shape.Opacity,
+                    Width = sector.Shape.Width ?? 0,
+                    Height = sector.Shape.Height ?? 0,
+                    X = sector.Shape.X ?? 0,
+                    Y = sector.Shape.Y ?? 0,
+                    Rows = sector.Shape.Rows ?? 0,
+                    Cols = sector.Shape.Columns ?? 0,
+                    Rotation = sector.Shape.Rotation ?? 0,
+                    Padding = sector.Shape.Padding ?? 0,
+                    Opacity = sector.Shape.Opacity ?? 0,
                     Colour = sector.Shape.Colour
                 },
 

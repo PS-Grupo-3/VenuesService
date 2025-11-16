@@ -2,38 +2,39 @@ using Application.Interfaces.Strategies;
 using Domain.Entities;
 
 namespace Application.Strategies;
-
 public class SemiCircleSeatGenerationStrategy : ISeatGenerationStrategy
 {
     public IEnumerable<Seat> GenerateSeats(Sector sector)
     {
-        if (sector.RowNumber is null)
-            throw new InvalidOperationException("SemiCircle requiere RowNumber como número de anillos");
+        var shape = sector.Shape;
 
-        int rings = sector.RowNumber.Value;
-        int seatsPerRing = sector.ColumnNumber ?? 10;
+        if (shape.Rows is null || shape.Columns is null)
+            throw new InvalidOperationException("SemiCircle requiere Rows y Columns.");
 
-        var result = new List<Seat>();
+        int rings = shape.Rows.Value;
+        int seatsPerRing = shape.Columns.Value;
 
-        int centerX = sector.PosX ?? 0;
-        int centerY = sector.PosY ?? 0;
-        int padding = sector.Shape.Padding;
+        int cx = shape.X ?? 0;
+        int cy = shape.Y ?? 0;
+        int padding = shape.Padding ?? 0;
 
         int baseRadius = 20;
         int ringSpacing = 12;
 
+        var result = new List<Seat>();
+
         for (int r = 1; r <= rings; r++)
         {
-            int radius = baseRadius + ((r - 1) * ringSpacing) + padding;
-            double angleStep = 180.0 / (seatsPerRing - 1); // -1 so edges touch boundary
+            int radius = baseRadius + (r - 1) * ringSpacing + padding;
+            double angleStep = 180.0 / (seatsPerRing - 1);
 
             for (int s = 0; s < seatsPerRing; s++)
             {
-                double angleDeg = 180.0 - (s * angleStep); // empieza en 180° (izq) → 0° (der)
+                double angleDeg = 180 - s * angleStep;
                 double angleRad = Math.PI * angleDeg / 180.0;
 
-                int posX = centerX + (int)(Math.Cos(angleRad) * radius);
-                int posY = centerY + (int)(Math.Sin(angleRad) * radius);
+                int posX = cx + (int)(Math.Cos(angleRad) * radius);
+                int posY = cy + (int)(Math.Sin(angleRad) * radius);
 
                 result.Add(new Seat
                 {

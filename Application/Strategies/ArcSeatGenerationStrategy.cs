@@ -2,47 +2,56 @@ using Application.Interfaces.Strategies;
 using Domain.Entities;
 
 namespace Application.Strategies;
-
 public class ArcSeatGenerationStrategy : ISeatGenerationStrategy
 {
     public IEnumerable<Seat> GenerateSeats(Sector sector)
     {
-        if (sector.RowNumber is null || sector.ColumnNumber is null)
-            throw new InvalidOperationException("Rectángulo requiere RowNumber y ColumnNumber definidos.");
+        var shape = sector.Shape;
 
-        int rows = sector.RowNumber.Value;
-        int cols = sector.ColumnNumber.Value;
+        if (shape.Rows is null || shape.Columns is null)
+            throw new InvalidOperationException("Arc requiere Rows y Columns.");
 
-        int totalSeats = rows * cols;
-        var seats = new Seat[totalSeats];
+        int rings = shape.Rows.Value;
+        int seatsPerRing = shape.Columns.Value;
 
-        int baseX = sector.PosX ?? 0;
-        int baseY = sector.PosY ?? 0;
-        int spacingX = 5;
-        int spacingY = 5;
-        int padding = sector.Shape.Padding;
+        int cx = shape.X ?? 0;
+        int cy = shape.Y ?? 0;
+        int padding = shape.Padding ?? 0;
 
-        int index = 0;
+        int baseRadius = 20;
+        int ringSpacing = 12;
 
-        for (int row = 1; row <= rows; row++)
+        double start = 150.0;
+        double end = 30.0;
+
+        double span = start - end;
+
+        var result = new List<Seat>();
+
+        for (int r = 1; r <= rings; r++)
         {
-            int posY = baseY + ((row - 1) * spacingY) + padding;
+            int radius = baseRadius + ((r - 1) * ringSpacing) + padding;
+            double angleStep = span / (seatsPerRing - 1);
 
-            for (int col = 1; col <= cols; col++)
+            for (int s = 0; s < seatsPerRing; s++)
             {
-                int posX = baseX + ((col - 1) * spacingX) + padding;
+                double angleDeg = start - s * angleStep;
+                double angleRad = Math.PI * angleDeg / 180.0;
 
-                seats[index++] = new Seat
+                int posX = cx + (int)(Math.Cos(angleRad) * radius);
+                int posY = cy + (int)(Math.Sin(angleRad) * radius);
+
+                result.Add(new Seat
                 {
                     SectorId = sector.SectorId,
-                    RowNumber = row,
-                    ColumnNumber = col,
+                    RowNumber = r,
+                    ColumnNumber = s + 1,
                     PosX = posX,
                     PosY = posY
-                };
+                });
             }
         }
 
-        return seats;
+        return result;
     }
 }

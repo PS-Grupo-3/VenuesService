@@ -61,12 +61,6 @@ namespace Infrastructure.Migrations
                     b.Property<int?>("Capacity")
                         .HasColumnType("int");
 
-                    b.Property<int?>("ColumnNumber")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Height")
-                        .HasColumnType("int");
-
                     b.Property<bool>("IsControlled")
                         .HasColumnType("bit");
 
@@ -75,23 +69,11 @@ namespace Infrastructure.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<int?>("PosX")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("PosY")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("RowNumber")
-                        .HasColumnType("int");
-
                     b.Property<int?>("SeatCount")
                         .HasColumnType("int");
 
                     b.Property<Guid>("Venue")
                         .HasColumnType("uniqueidentifier");
-
-                    b.Property<int>("Width")
-                        .HasColumnType("int");
 
                     b.HasKey("SectorId");
 
@@ -115,16 +97,22 @@ namespace Infrastructure.Migrations
                         .HasColumnType("nvarchar(10)")
                         .HasDefaultValue("#FFFFFF");
 
-                    b.Property<int>("Height")
+                    b.Property<int?>("Columns")
                         .HasColumnType("int");
 
-                    b.Property<int>("Opacity")
+                    b.Property<int?>("Height")
                         .HasColumnType("int");
 
-                    b.Property<int>("Padding")
+                    b.Property<int?>("Opacity")
                         .HasColumnType("int");
 
-                    b.Property<int>("Rotation")
+                    b.Property<int?>("Padding")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Rotation")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Rows")
                         .HasColumnType("int");
 
                     b.Property<Guid>("SectorId")
@@ -135,13 +123,13 @@ namespace Infrastructure.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<int>("Width")
+                    b.Property<int?>("Width")
                         .HasColumnType("int");
 
-                    b.Property<int>("X")
+                    b.Property<int?>("X")
                         .HasColumnType("int");
 
-                    b.Property<int>("Y")
+                    b.Property<int?>("Y")
                         .HasColumnType("int");
 
                     b.HasKey("ShapeId");
@@ -164,7 +152,6 @@ namespace Infrastructure.Migrations
                         .HasColumnType("nvarchar(150)");
 
                     b.Property<string>("BackgroundImageUrl")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("MapUrl")

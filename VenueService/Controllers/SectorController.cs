@@ -135,7 +135,7 @@ namespace VenueService.Controllers
         }
 
         [HttpPut("{sectorId:guid}/shape")]
-        public async Task<IActionResult> UpdateSectorShape(Guid sectorId, [FromBody] ShapeRequestData request)
+        public async Task<IActionResult> UpdateSectorShape(Guid sectorId, [FromBody] ShapeRequest request)
         {
             var command = new UpdateSectorShapeCommand(sectorId, request);
             var result = await _mediator.Send(command);

@@ -2,6 +2,7 @@
 using Application.Models.Responses;
 using MediatR;
 
+#pragma warning disable CS8601, CS8602
 namespace Application.Features.Venue.Queries
 {
     public class GetAllVenuesHandler : IRequestHandler<GetAllVenuesQuery, IReadOnlyList<VenueResponse>>

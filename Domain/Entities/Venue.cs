@@ -8,7 +8,7 @@ namespace Domain.Entities
         public Guid VenueId { get; set; }
 
         [Required, MaxLength(100)]
-        public string? Name { get; set; }
+        public required string Name { get; set; }
 
         public long TotalCapacity { get; set; }
 

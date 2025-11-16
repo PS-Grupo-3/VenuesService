@@ -3,6 +3,7 @@ using Application.Models.Responses;
 using Domain.Entities;
 using MediatR;
 
+#pragma warning disable CS8602, CS8604
 namespace Application.Features.Venue.Queries
 {
     public class GetVenueByIdHandler : IRequestHandler<GetVenueByIdQuery, VenueDetailResponse>
@@ -22,6 +23,7 @@ namespace Application.Features.Venue.Queries
             {
                 throw new KeyNotFoundException("No se encontró un Venue con ese ID");
             }            
+            
 
             return new VenueDetailResponse
             {
@@ -43,24 +45,20 @@ namespace Application.Features.Venue.Queries
                     Name = s.Name,
                     IsControlled = s.IsControlled,
                     SeatCount = s.SeatCount,
-                    Capacity = s.Capacity,
-                    RowNumber = s.RowNumber,
-                    ColumnNumber = s.ColumnNumber,
-                    PosX = s.PosX,
-                    PosY = s.PosY, 
-                    Width = s.Width,
-                    Height = s.Height,
+                    Capacity = s.Capacity,                    
                     Shape = new ShapeResponse
                     {
                         ShapeId = s.Shape.ShapeId,
                         Type = s.Shape.Type,
-                        Width = s.Shape.Width,
-                        Height = s.Shape.Height,
-                        X = s.Shape.X,
-                        Y = s.Shape.Y,
-                        Rotation = s.Shape.Rotation,
-                        Padding = s.Shape.Padding,
-                        Opacity = s.Shape.Opacity,
+                        Width = s.Shape.Width  ?? 0,
+                        Height = s.Shape.Height ?? 0,
+                        X = s.Shape.X ?? 0,
+                        Y = s.Shape.Y ?? 0,
+                        Rows = s.Shape.Rows ?? 0,
+                        Cols = s.Shape.Columns ?? 0,
+                        Rotation = s.Shape.Rotation ?? 0,
+                        Padding = s.Shape.Padding ?? 0,
+                        Opacity = s.Shape.Opacity ?? 0,
                         Colour = s.Shape.Colour
                     }                                                                
                 }).ToList()

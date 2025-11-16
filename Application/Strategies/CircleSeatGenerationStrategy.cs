@@ -2,40 +2,35 @@ using Application.Interfaces.Strategies;
 using Domain.Entities;
 
 namespace Application.Strategies;
-
 public class CircleSeatGenerationStrategy : ISeatGenerationStrategy
 {
     public IEnumerable<Seat> GenerateSeats(Sector sector)
     {
-        if (sector.RowNumber is null)
-            throw new InvalidOperationException("Circle requiere RowNumber como número de anillos");
+        var shape = sector.Shape;
 
-        int rings = sector.RowNumber.Value;      // cantidad de filas circulares
-        int seatsPerRing = sector.ColumnNumber ?? 12; // fallback 
+        if (shape.Rows is null || shape.Columns is null)
+            throw new InvalidOperationException("Circle requiere Rows y Columns.");
+
+        int rings = shape.Rows.Value;
+        int seatsPerRing = shape.Columns.Value;
+
+        int cx = shape.X ?? 0;
+        int cy = shape.Y ?? 0;
+        int padding = shape.Padding ?? 0;
 
         var result = new List<Seat>();
 
-        int centerX = sector.PosX ?? 0;
-        int centerY = sector.PosY ?? 0;
-        int padding = sector.Shape.Padding;
-
-        int baseRadius = 20;    // distancia mínima del anillo al centro
-        int ringSpacing = 12;   // separación entre radios sucesivos
-
-        int seatId = 0;
-
         for (int r = 1; r <= rings; r++)
         {
-            int radius = baseRadius + ((r - 1) * ringSpacing) + padding;
-            double angleStep = 360.0 / seatsPerRing;
+            int radius = padding + r * 12;
+            double step = 360.0 / seatsPerRing;
 
             for (int s = 0; s < seatsPerRing; s++)
             {
-                double angleDeg = s * angleStep;
-                double angleRad = Math.PI * angleDeg / 180.0;
+                double angle = s * step * Math.PI / 180.0;
 
-                int posX = centerX + (int)(Math.Cos(angleRad) * radius);
-                int posY = centerY + (int)(Math.Sin(angleRad) * radius);
+                int posX = cx + (int)(Math.Cos(angle) * radius);
+                int posY = cy + (int)(Math.Sin(angle) * radius);
 
                 result.Add(new Seat
                 {

@@ -58,10 +58,12 @@ namespace Application.Features.Sector.Handlers
             shape.Height = command.Request.Height;
             shape.X = command.Request.X;
             shape.Y = command.Request.Y;
+            shape.Rows = command.Request.Rows ?? 5;
+            shape.Columns = command.Request.Columns ?? 5;
             shape.Rotation = command.Request.Rotation;
             shape.Padding = command.Request.Padding;
             shape.Opacity = command.Request.Opacity;
-            shape.Colour = command.Request.Colour;
+            shape.Colour = command.Request.Colour ?? "#ffffff";
 
   
             _sectorCommand.Update(sector);

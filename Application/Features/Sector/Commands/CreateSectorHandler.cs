@@ -1,18 +1,14 @@
-﻿// 1. Namespace corregido
-namespace Application.Features.Sector.Handlers
+﻿namespace Application.Features.Sector.Handlers
 {
     using Application.Features.Sector.Commands;
     using Application.Interfaces.Command;
     using Application.Models.Responses;
     using MediatR;
-    using System.Threading;
-    using System.Threading.Tasks;
     using SectorEntity = Domain.Entities.Sector;
     using ShapeEntity = Domain.Entities.Shape; 
 
     public class CreateSectorHandler : IRequestHandler<CreateSectorCommand, SectorResponse>
     {
-
         private readonly ISectorCommand _sectorCommand;
         private readonly IShapeCommand _shapeCommand;
 
@@ -21,7 +17,7 @@ namespace Application.Features.Sector.Handlers
             _sectorCommand = sectorCommand;
             _shapeCommand = shapeCommand;
         }
-        
+
         private static readonly HashSet<string> ValidShapes = new()
         {
             "rectangle", "circle", "semicircle", "arc"
@@ -29,86 +25,64 @@ namespace Application.Features.Sector.Handlers
 
         public async Task<SectorResponse> Handle(CreateSectorCommand command, CancellationToken cancellationToken)
         {
-            if (!ValidShapes.Contains(command.Request.Shape.Type.ToLower()))
-                throw new ArgumentException($"Shape '{command.Request.Shape.Type}' no permitido. Los válidos son: {string.Join(", ", ValidShapes)}");
+            var req = command.Request;
 
-            if (command.Request.Shape.Width <= 0 && command.Request.Shape.Height <= 0)
-            {
-                throw new ArgumentException($"El ancho y alto tiene que ser positivos.");
-            }
-            if (command.Request.Shape.Width <= 0 || command.Request.Shape.Height <= 0) 
-            {
-                throw new ArgumentException($"Ingrese medidas válidas.");
-            }
-            if (command.Request.Shape.Padding <= 0) 
-            {
-                throw new ArgumentException($"Ingrese un padding válido.");
-            }
+            if (!ValidShapes.Contains(req.Shape.Type.ToLower()))
+                throw new ArgumentException($"Shape '{req.Shape.Type}' no permitido. Válidos: {string.Join(", ", ValidShapes)}");
 
+            if (req.Shape.Width <= 0 || req.Shape.Height <= 0)
+                throw new ArgumentException("Width y Height deben ser positivos.");
+
+            if (req.Shape.Padding < 0)
+                throw new ArgumentException("Padding debe ser >= 0.");
+
+            if (req.IsControlled)
+            {
+                if (req.Shape.Rows is null || req.Shape.Columns is null)
+                    throw new ArgumentException("Rectangle requiere Rows y Columns en Shape.");
+
+                if (req.Shape.Rows <= 0 || req.Shape.Columns <= 0)
+                    throw new ArgumentException("Rows y Columns deben ser > 0.");
+
+                if (req.SeatCount <= 0)
+                    throw new ArgumentException("SeatCount debe ser > 0.");
+            }
+            else
+            {
+                if (req.Capacity is null || req.Capacity <= 0)
+                    throw new ArgumentException("Capacity debe ser > 0 para sectores NO controlados.");
+            }
 
             var shape = new ShapeEntity
             {
-                Type = command.Request.Shape.Type,
-                Width = command.Request.Shape.Width,
-                Height = command.Request.Shape.Height,
-                X = command.Request.Shape.X,
-                Y = command.Request.Shape.Y,
-                Rotation = command.Request.Shape.Rotation,
-                Padding = command.Request.Shape.Padding,
-                Opacity = command.Request.Shape.Opacity,
-                Colour = command.Request.Shape.Colour
+                Type = req.Shape.Type,
+                Width = req.Shape.Width,
+                Height = req.Shape.Height,
+                X = req.Shape.X,
+                Y = req.Shape.Y,
+                Rotation = req.Shape.Rotation,
+                Padding = req.Shape.Padding,
+                Opacity = req.Shape.Opacity,
+                Colour = req.Shape.Colour ?? "#ffffff",
+
+                Rows = req.Shape.Rows,
+                Columns = req.Shape.Columns,                
             };
 
-
             await _shapeCommand.InsertAsync(shape, cancellationToken);
-            
-            if (command.Request.Width < 0 && command.Request.Height < 0)
-            {
-                throw new ArgumentException($"El ancho y alto deben ser positivos.");
-            }
-
-            if (command.Request.Width <= 0 || command.Request.Height <= 0) 
-            {
-                throw new ArgumentException($"Ingrese medidas válidas.");
-            }
-            if (!command.Request.IsControlled && command.Request.Capacity <= 0) 
-            {
-                throw new ArgumentException($"Ingrese una capacidad válida.");
-            }
-            if (command.Request.IsControlled && command.Request.SeatCount <= 0)
-            {
-                throw new ArgumentException($"Ingrese una cantidad de asientos válida.");
-            }
-            if (command.Request.IsControlled && command.Request.RowNumber <= 0)
-            {
-                throw new ArgumentException($"Ingrese una cantidad de filas válida.");
-            }
-            if (command.Request.IsControlled && command.Request.ColumnNumber <= 0)
-            {
-                throw new ArgumentException($"Ingrese una cantidad de columnas válida.");
-            }
-
 
             var sector = new SectorEntity
             {
-                Name = command.Request.Name,
-                IsControlled = command.Request.IsControlled,
-                Venue = command.VenueId, 
-                SeatCount = command.Request.IsControlled ? command.Request.SeatCount : null,
-                Capacity =  command.Request.IsControlled ?  null : command.Request.Capacity,
-                RowNumber = command.Request.IsControlled ? command.Request.RowNumber : null,
-                ColumnNumber = command.Request.IsControlled ? command.Request.ColumnNumber : null,
-                PosX = command.Request.PosX,
-                PosY = command.Request.PosY,
-                Width = command.Request.Width,
-                Height = command.Request.Height,
-                Shape = shape 
+                Name = req.Name,
+                IsControlled = req.IsControlled,
+                Venue = command.VenueId,
+                SeatCount = req.IsControlled ? req.SeatCount : null,
+                Capacity = req.IsControlled ? null : req.Capacity,
+                Shape = shape
             };
 
             await _sectorCommand.InsertAsync(sector, cancellationToken);
-
             await _sectorCommand.SaveChangesAsync(cancellationToken);
-
 
             return new SectorResponse
             {
@@ -117,24 +91,21 @@ namespace Application.Features.Sector.Handlers
                 IsControlled = sector.IsControlled,
                 SeatCount = sector.SeatCount,
                 Capacity = sector.Capacity,
-                RowNumber = sector.RowNumber,
-                ColumnNumber = sector.ColumnNumber,
-                PosX=sector.PosX,
-                PosY=sector.PosY,
-                Width = sector.Width,
-                Height = sector.Height,
-                Shape = new ShapeResponse 
+
+                Shape = new ShapeResponse
                 {
                     ShapeId = shape.ShapeId,
                     Type = shape.Type,
-                    Width = shape.Width,
-                    Height = shape.Height,
-                    X = shape.X,
-                    Y = shape.Y,
-                    Rotation = shape.Rotation,
-                    Padding = shape.Padding,
-                    Opacity = shape.Opacity,
-                    Colour = shape.Colour
+                    Width = shape.Width ?? 0,
+                    Height = shape.Height ?? 0,
+                    X = shape.X ?? 0,
+                    Y = shape.Y ?? 0,
+                    Rows = shape.Rows ?? 5,
+                    Cols = shape.Rows ?? 5,
+                    Rotation = shape.Rotation ?? 0,
+                    Padding = shape.Padding ?? 0,
+                    Opacity = shape.Opacity ?? 0,
+                    Colour = shape.Colour ?? "#ffffff"
                 }
             };
         }

@@ -18,16 +18,7 @@ namespace Application.Models.Requests
         [Range(int.MinValue, int.MaxValue)]
         public int? Capacity { get; set; }
 
-        [Range(int.MinValue, int.MaxValue)]
-        public int Width { get; set; }
-
-        [Range(int.MinValue, int.MaxValue)]
-        public int Height { get; set; }
-        
-        public int? RowNumber { get; set; }   
-        public int? ColumnNumber { get; set; }
-
         [Required]
-        public ShapeRequestData Shape { get; set; } = null!;
+        public ShapeRequest Shape { get; set; } = null!;
     }
 }

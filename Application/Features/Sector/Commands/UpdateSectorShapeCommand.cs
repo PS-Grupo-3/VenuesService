@@ -6,6 +6,6 @@ namespace Application.Features.Sector.Commands
 {
     public record UpdateSectorShapeCommand(
     Guid SectorId,
-    ShapeRequestData Request
+    ShapeRequest Request
 ) : IRequest<GenericResponse>;
 }

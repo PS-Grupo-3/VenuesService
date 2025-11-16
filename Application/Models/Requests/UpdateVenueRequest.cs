@@ -10,7 +10,7 @@ namespace Application.Models.Requests
     public class UpdateVenueRequest
     {
         [Required]
-        public string Name { get; set; }
+        public string? Name { get; set; }
         public int TotalCapacity { get; set; }
         public int VenueTypeId { get; set; }
         [Required]

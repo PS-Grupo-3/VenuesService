@@ -1,23 +1,22 @@
-﻿// 1. Namespace corregido
-namespace Application.Features.Sector.Handlers
+﻿namespace Application.Features.Sector.Handlers
 {
     using Application.Interfaces.Command;
     using Application.Interfaces.Query;
     using Application.Features.Sector.Commands;
     using Application.Models.Responses;
+    using Application.Models.Requests;
     using MediatR;
-    using System.Threading;
-    using System.Threading.Tasks;
 
     public class UpdateSectorHandler : IRequestHandler<UpdateSectorCommand, GenericResponse>
     {
         private readonly ISectorCommand _sectorCommand;
         private readonly ISectorQuery _sectorQuery;
-        
+
         private static readonly HashSet<string> ValidShapes = new()
         {
             "rectangle", "circle", "semicircle", "arc"
         };
+
         public UpdateSectorHandler(ISectorCommand sectorCommand, ISectorQuery sectorQuery)
         {
             _sectorCommand = sectorCommand;
@@ -29,69 +28,61 @@ namespace Application.Features.Sector.Handlers
             var sector = await _sectorQuery.GetByIdAsync(command.SectorId, cancellationToken);
 
             if (sector == null)
-            {
                 return new GenericResponse { Success = false, Message = "Sector no encontrado." };
-            }
 
-            sector.Name = command.Request.Name;
-            sector.IsControlled = command.Request.IsControlled;
-            sector.Width = command.Request.Width;
-            sector.Height = command.Request.Height;
-            sector.RowNumber = command.Request.RowNumber;
-            sector.ColumnNumber = command.Request.ColumnNumber;
+            var req = command.Request;
+            var shapeDto = req.Shape;
+            var shapeEntity = sector.Shape;
 
-            if (command.Request.Width <= 0 && command.Request.Height <= 0)
-            {
-                throw new ArgumentException($"El ancho y alto deben ser positivos.");
-            }
+            sector.Name = req.Name;
+            sector.IsControlled = req.IsControlled;
 
-            if (command.Request.Width <= 0 || command.Request.Height <= 0)
+            if (req.IsControlled)
             {
-                throw new ArgumentException($"Ingrese medidas válidas.");
-            }
+                if (req.SeatCount is null || req.SeatCount <= 0)
+                    throw new ArgumentException("SeatCount debe ser > 0.");
 
-            if (!sector.IsControlled && command.Request.Capacity <= 0)
-            {
-                throw new ArgumentException($"Ingrese una capacidad válida.");
-            }
-            if (sector.IsControlled && command.Request.SeatCount <= 0)
-            {
-                throw new ArgumentException($"Ingrese una cantidad de asientos válida.");
-            }
-
-            if (sector.IsControlled)
-            {
-                sector.SeatCount = command.Request.SeatCount;
+                sector.SeatCount = req.SeatCount;
                 sector.Capacity = null;
             }
             else
             {
-                sector.Capacity = command.Request.Capacity;
+                if (req.Capacity is null || req.Capacity <= 0)
+                    throw new ArgumentException("Capacity debe ser > 0.");
+
+                sector.Capacity = req.Capacity;
                 sector.SeatCount = null;
             }
 
+            if (!ValidShapes.Contains(shapeDto.Type.ToLower()))
+                throw new ArgumentException($"Shape '{shapeDto.Type}' no permitido.");
 
-            if (!ValidShapes.Contains(command.Request.Shape.Type.ToLower()))
-                throw new ArgumentException($"Shape '{command.Request.Shape.Type}' no permitido. Los válidos son: {string.Join(", ", ValidShapes)}");
-
-
-            var shapeEntity = sector.Shape;
-            var shapeDto = command.Request.Shape;
-
-            if (shapeDto.Width < 0 && shapeDto.Height < 0)
-            {
-                throw new ArgumentException($"El ancho y alto tiene que ser positivos.");
-            }
             if (shapeDto.Width <= 0 || shapeDto.Height <= 0)
-            {
-                throw new ArgumentException($"Ingrese medidas válidas.");
-            }
-            if (shapeDto.Padding <= 0)
-            {
-                throw new ArgumentException($"Ingrese un padding válido.");
-            }
+                throw new ArgumentException("Width y Height deben ser > 0.");
 
+            if (shapeDto.Padding < 0)
+                throw new ArgumentException("Padding debe ser >= 0.");
 
+            switch (shapeDto.Type.ToLower())
+            {
+                case "rectangle":
+                    if (shapeDto.Rows is null || shapeDto.Columns is null ||
+                        shapeDto.Rows <= 0 || shapeDto.Columns <= 0)
+                        throw new ArgumentException("Rectangle requiere Rows > 0 y Columns > 0.");
+                    break;
+
+                case "circle":
+                    if (shapeDto.Rows is null || shapeDto.Columns is null ||
+                        shapeDto.Rows <= 0 || shapeDto.Columns <= 0)
+                        throw new ArgumentException("Circle requiere Rows > 0 y Columns > 0.");
+                    break;
+
+                case "semicircle":
+                case "arc":
+                    if (shapeDto.Rows is null || shapeDto.Columns is null)
+                        throw new ArgumentException("Arc/Semicircle requiere Rows y Columns.");
+                    break;
+            }
 
             shapeEntity.Type = shapeDto.Type;
             shapeEntity.Width = shapeDto.Width;
@@ -101,17 +92,18 @@ namespace Application.Features.Sector.Handlers
             shapeEntity.Rotation = shapeDto.Rotation;
             shapeEntity.Padding = shapeDto.Padding;
             shapeEntity.Opacity = shapeDto.Opacity;
-            shapeEntity.Colour = shapeDto.Colour;
-
-            // Update sector position based on shape position
-            sector.PosX = shapeDto.X;
-            sector.PosY = shapeDto.Y;
+            shapeEntity.Colour = shapeDto.Colour ?? "#ffffff";
+            shapeEntity.Rows = shapeDto.Rows;
+            shapeEntity.Columns = shapeDto.Columns;
 
             _sectorCommand.Update(sector);
-
             await _sectorCommand.SaveChangesAsync(cancellationToken);
 
-            return new GenericResponse { Success = true, Message = "Sector actualizado correctamente." };
+            return new GenericResponse
+            {
+                Success = true,
+                Message = "Sector actualizado correctamente."
+            };
         }
     }
 }

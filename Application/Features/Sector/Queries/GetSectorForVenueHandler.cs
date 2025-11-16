@@ -22,31 +22,29 @@ namespace Application.Features.Sector.Handlers
 
         public async Task<IEnumerable<SectorResponse>> Handle(GetSectorsForVenueQuery request, CancellationToken ct)
         {
-            var sectors = await _sectorQuery.GetSectorsByVenueIdAsync(request.VenueId, ct);
+            var sectors = await _sectorQuery.GetSectorsByVenueIdAsync(request.VenueId, ct);    
 
             return sectors.Select(s => new SectorResponse
             {
                 SectorId = s.SectorId,
                 Name = s.Name,
                 Capacity = s.Capacity,
-                RowNumber = s.RowNumber,
-                ColumnNumber = s.ColumnNumber,
                 IsControlled = s.IsControlled,
                 SeatCount = s.SeatCount,
-                PosX = s.PosX,
-                PosY = s.PosY,
 
                 Shape = new ShapeResponse
                 {
                     ShapeId = s.Shape.ShapeId,
                     Type = s.Shape.Type,
-                    Width = s.Shape.Width,
-                    Height = s.Shape.Height,
-                    X = s.Shape.X,
-                    Y = s.Shape.Y,
-                    Rotation = s.Shape.Rotation,
-                    Padding = s.Shape.Padding,
-                    Opacity = s.Shape.Opacity,
+                    Width = s.Shape.Width ?? 0,
+                    Height = s.Shape.Height ?? 0,
+                    X = s.Shape.X ?? 0,
+                    Y = s.Shape.Y ?? 0,
+                    Rows = s.Shape.Rows ?? 0,
+                    Cols = s.Shape.Columns ?? 0,
+                    Rotation = s.Shape.Rotation ?? 0,
+                    Padding = s.Shape.Padding ?? 0,
+                    Opacity = s.Shape.Opacity ?? 0,
                     Colour = s.Shape.Colour
                 }
             }).ToList();

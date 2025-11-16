@@ -8,19 +8,13 @@ namespace Domain.Entities
         public Guid SectorId { get; set; }
 
         [Required, MaxLength(50)]
-        public string? Name { get; set; }
+        public required string Name { get; set; }
 
         public bool IsControlled { get; set; }
 
         public int? SeatCount { get; set; }
 
-        public int? Capacity { get; set; }
-        public int? RowNumber { get; set; }
-        public int? ColumnNumber { get; set; }
-        public int? PosX { get; set; }
-        public int? PosY { get; set; }
-        public int Width { get; set; }
-        public int Height { get; set; }
+        public int? Capacity { get; set; }                
 
         // FK a Venue
         public Guid Venue { get; set; }

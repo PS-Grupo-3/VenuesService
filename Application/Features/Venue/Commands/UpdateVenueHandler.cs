@@ -31,9 +31,14 @@ namespace Application.Features.Venue.Commands
                 throw new ArgumentException("Ingrese una capacidad válida");
             }
 
-            venue.Name = command.Request.Name;
+            if (venue.Name == null)
+            {
+                throw new ArgumentException("Ingresar nombre.");
+            }
+
+            venue.Name = command.Request.Name!;
             venue.TotalCapacity = command.Request.TotalCapacity;
-            venue.VenueTypeNavigation.VenueTypeId = command.Request.VenueTypeId;
+            venue.VenueType = command.Request.VenueTypeId;
             venue.Address = command.Request.Address;
             venue.MapUrl = command.Request.MapUrl;
             venue.BackgroundImageUrl = command.Request.BackgroundImageUrl;
