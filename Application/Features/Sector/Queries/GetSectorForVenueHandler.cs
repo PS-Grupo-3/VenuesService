@@ -29,6 +29,8 @@ namespace Application.Features.Sector.Handlers
                 SectorId = s.SectorId,
                 Name = s.Name,
                 Capacity = s.Capacity,
+                RowNumber = s.RowNumber,
+                ColumnNumber = s.ColumnNumber,
                 IsControlled = s.IsControlled,
                 SeatCount = s.SeatCount,
                 PosX = s.PosX,
